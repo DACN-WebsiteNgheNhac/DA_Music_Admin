@@ -1,0 +1,133 @@
+﻿<RadioButton
+    x:Class="CustomControls.Controls.CustomRadioButton"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:CustomControls.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="main"
+    Width="auto"
+    Height="auto"
+    Background="Transparent"
+    Checked="MainChecked"
+    Click="main_Click"
+    FontFamily="Alata"
+    FontSize="13"
+    Loaded="MainLoaded"
+    MouseEnter="MainMouseEnter"
+    MouseLeave="MainMouseLeave"
+    Style="{StaticResource rbtn_Menu_V2}"
+    Unchecked="main_Unchecked"
+    mc:Ignorable="d">
+
+    <Grid
+        x:Name="grid"
+        Width="{Binding ElementName=main, Path=ActualWidth}"
+        Height="45"
+        HorizontalAlignment="Left">
+
+        <Grid.Resources>
+
+            <ResourceDictionary>
+
+                <Style
+                    x:Key="PathIcon"
+                    x:Name="PathIcon"
+                    TargetType="Path">
+                    <Setter Property="Fill" Value="#dadada" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="Margin" Value="10,0,0,0" />
+                    <Setter Property="UseLayoutRounding" Value="True" />
+
+                </Style>
+
+                <Style x:Key="IconArrow" TargetType="Path">
+                    <Setter Property="Fill" Value="White" />
+                    <Setter Property="UseLayoutRounding" Value="True" />
+                    <Setter Property="Visibility" Value="Visible" />
+                    <Setter Property="Opacity" Value="0" />
+                    <Setter Property="Data" Value="M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M10,16.5L16,12L10,7.5V16.5Z" />
+                    <Style.Triggers>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=IsMouseOver, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type RadioButton}}}" Value="True" />
+                                <Condition Binding="{Binding Path=IsChecked, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type RadioButton}}}" Value="False" />
+                            </MultiDataTrigger.Conditions>
+
+                            <MultiDataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard Timeline.DesiredFrameRate="{StaticResource FPS}">
+                                        <DoubleAnimation
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="1"
+                                            Duration="0:0:0.125" />
+
+
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiDataTrigger.EnterActions>
+
+                            <MultiDataTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard Timeline.DesiredFrameRate="{StaticResource FPS}">
+                                        <DoubleAnimation
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0"
+                                            Duration="0:0:0" />
+
+
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiDataTrigger.ExitActions>
+
+                        </MultiDataTrigger>
+                    </Style.Triggers>
+
+                </Style>
+
+            </ResourceDictionary>
+
+        </Grid.Resources>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0" />
+            <ColumnDefinition Width="45" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="*" MaxWidth="25" />
+        </Grid.ColumnDefinitions>
+
+
+
+        <Path
+            x:Name="icon"
+            Grid.Column="1"
+            Data="M13,3V9H21V3M13,21H21V11H13M3,21H11V15H3M3,13H11V3H3V13Z"
+            Style="{StaticResource PathIcon}" />
+        <TextBlock
+            x:Name="tbl"
+            Grid.Column="2"
+            Margin="5,0,0,0"
+            VerticalAlignment="Center"
+            FontWeight="Bold"
+            Foreground="#dadada"
+            Text="Thể loại"
+            TextAlignment="Left"
+            TextTrimming="CharacterEllipsis" />
+        <Viewbox
+            x:Name="hiddenIcon"
+            Grid.Column="3"
+            Width="20"
+            Height="20"
+            Margin="0,0,5,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center">
+            <Canvas
+                Width="25"
+                Height="25"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                <Path x:Name="icon2" Style="{StaticResource IconArrow}" />
+            </Canvas>
+        </Viewbox>
+    </Grid>
+</RadioButton>
