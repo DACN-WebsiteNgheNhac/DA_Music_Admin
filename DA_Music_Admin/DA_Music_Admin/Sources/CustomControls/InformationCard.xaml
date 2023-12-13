@@ -18,7 +18,7 @@
         <Duration x:Key="OffDuration">0:0:0.15</Duration>
 
         <Style x:Key="LoadingTextBlock" TargetType="TextBlock">
-
+            <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="MinWidth" Value="{StaticResource MinWidth}" />
             <Style.Triggers>
@@ -55,7 +55,7 @@
     <Border
         x:Name="Border"
         Padding="17"
-        Background="{StaticResource SubBackgroundColor}"
+        Background="{DynamicResource SubBackgroundColor}"
         CornerRadius="4">
         <StackPanel Orientation="Horizontal">
 

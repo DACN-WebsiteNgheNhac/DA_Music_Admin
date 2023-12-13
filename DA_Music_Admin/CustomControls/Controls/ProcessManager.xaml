@@ -39,8 +39,8 @@
 
     <Border
         Padding="2,2,0,2"
-        Background="{StaticResource SubBackgroundColor}"
-        BorderBrush="{StaticResource ForegroundColor_40}"
+        Background="{DynamicResource SubBackgroundColor}"
+        BorderBrush="{DynamicResource ForegroundColor_40}"
         BorderThickness="2">
         <Grid>
             <Grid.ColumnDefinitions>

@@ -30,7 +30,7 @@
     <Page.Resources>
         <Style x:Key="tblStyle" TargetType="TextBlock">
             <Setter Property="FontSize" Value="{StaticResource TextSize}" />
-            <Setter Property="Foreground" Value="{StaticResource ForegroundColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
             <Setter Property="FontFamily" Value="Montserrat" />
             <Setter Property="Focusable" Value="False" />
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
@@ -46,13 +46,13 @@
             BasedOn="{StaticResource MaterialDesignFlatMidBgButton}"
             TargetType="Button">
             <Setter Property="FontSize" Value="{StaticResource TextSize}" />
-            <Setter Property="Foreground" Value="{StaticResource ForegroundInIconColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource ForegroundInIconColor}" />
             <Setter Property="FontFamily" Value="Montserrat" />
             <Setter Property="Focusable" Value="False" />
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="Background" Value="{StaticResource IconColor}" />
+            <Setter Property="Background" Value="{DynamicResource IconColor}" />
             <Setter Property="Height" Value="35" />
             <Setter Property="Content" Value="Chọn" />
             <Setter Property="BorderBrush" Value="Transparent" />
@@ -64,7 +64,7 @@
             TargetType="TextBox">
             <Setter Property="FontFamily" Value="Montserrat" />
             <Setter Property="Margin" Value="0,0,0,5" />
-            <Setter Property="BorderBrush" Value="{StaticResource ForegroundColor}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ForegroundColor}" />
 
         </Style>
 
@@ -98,7 +98,7 @@
 
                 <Border
                     Padding="10"
-                    Background="{StaticResource SubBackgroundColor}"
+                    Background="{DynamicResource SubBackgroundColor}"
                     CornerRadius="{StaticResource CornerRadius_V3}">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -213,7 +213,7 @@
                     Grid.Column="1"
                     Margin="10,0,0,0"
                     Padding="10"
-                    Background="{StaticResource SubBackgroundColor}"
+                    Background="{DynamicResource SubBackgroundColor}"
                     CornerRadius="{StaticResource CornerRadius_V3}">
 
                     <Grid Margin="20,0,20,0">
@@ -313,12 +313,12 @@
                                 Width="240"
                                 materialDesign:HintAssist.FloatingScale="0.7"
                                 materialDesign:HintAssist.Hint="Ngày sinh"
-                                materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource IconColor}"
+                                materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource IconColor}"
                                 FontSize="{StaticResource SmallTextSize}"
-                                Foreground="{StaticResource ForegroundColor}"
+                                Foreground="{DynamicResource ForegroundColor}"
                                 SelectedDate="{Binding Data.BirthDay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat='{StaticResource FormatDateWithoutTime}', Converter={StaticResource DateTimeOffsetToDatetime}}">
                                 <DatePicker.Resources>
-                                    <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="{StaticResource ColorIconColor}" />
+                                    <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="{DynamicResource ColorIconColor}" />
 
                                     <Style
                                         x:Key="CustomCalendarDayButton"
@@ -338,10 +338,10 @@
                                         x:Key="CustomCalendar"
                                         BasedOn="{StaticResource MaterialDesignDatePickerCalendarPortrait}"
                                         TargetType="{x:Type Calendar}">
-                                        <Setter Property="Background" Value="{StaticResource SubBackgroundColor}" />
-                                        <Setter Property="Foreground" Value="{StaticResource ForegroundColor}" />
-                                        <Setter Property="materialDesign:CalendarAssist.HeaderBackground" Value="{StaticResource IconColor}" />
-                                        <Setter Property="materialDesign:CalendarAssist.HeaderForeground" Value="{StaticResource ForegroundColor}" />
+                                        <Setter Property="Background" Value="{DynamicResource SubBackgroundColor}" />
+                                        <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+                                        <Setter Property="materialDesign:CalendarAssist.HeaderBackground" Value="{DynamicResource IconColor}" />
+                                        <Setter Property="materialDesign:CalendarAssist.HeaderForeground" Value="{DynamicResource ForegroundColor}" />
                                         <Setter Property="CalendarDayButtonStyle" Value="{StaticResource CustomCalendarDayButton}" />
                                         <Setter Property="CalendarButtonStyle" Value="{StaticResource CustomCalendarButton}" />
                                     </Style>
@@ -356,35 +356,35 @@
                                 Margin="15,0,0,0"
                                 materialDesign:HintAssist.FloatingScale="0.7"
                                 materialDesign:HintAssist.Hint="Ngày ra mắt"
-                                materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource IconColor}"
+                                materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource IconColor}"
                                 FontSize="{StaticResource SmallTextSize}"
-                                Foreground="{StaticResource ForegroundColor}"
+                                Foreground="{DynamicResource ForegroundColor}"
                                 SelectedDate="{Binding Data.DebutDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat='{StaticResource FormatDateWithoutTime}', Converter={StaticResource DateTimeOffsetToDatetime}}">
                                 <DatePicker.Resources>
-                                    <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="{StaticResource ColorIconColor}" />
+                                    <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="{DynamicResource ColorIconColor}" />
 
                                     <Style
                                         x:Key="CustomCalendarDayButton"
                                         BasedOn="{StaticResource MaterialDesignCalendarDayButton}"
                                         TargetType="CalendarDayButton">
-                                        <Setter Property="materialDesign:CalendarAssist.SelectionColor" Value="{StaticResource IconColor}" />
-                                        <Setter Property="materialDesign:CalendarAssist.SelectionForegroundColor" Value="{StaticResource ForegroundColor}" />
+                                        <Setter Property="materialDesign:CalendarAssist.SelectionColor" Value="{DynamicResource IconColor}" />
+                                        <Setter Property="materialDesign:CalendarAssist.SelectionForegroundColor" Value="{DynamicResource ForegroundColor}" />
                                     </Style>
                                     <Style
                                         x:Key="CustomCalendarButton"
                                         BasedOn="{StaticResource MaterialDesignCalendarButton}"
                                         TargetType="CalendarButton">
-                                        <Setter Property="materialDesign:CalendarAssist.SelectionColor" Value="{StaticResource IconColor}" />
-                                        <Setter Property="materialDesign:CalendarAssist.SelectionForegroundColor" Value="{StaticResource ForegroundColor}" />
+                                        <Setter Property="materialDesign:CalendarAssist.SelectionColor" Value="{DynamicResource IconColor}" />
+                                        <Setter Property="materialDesign:CalendarAssist.SelectionForegroundColor" Value="{DynamicResource ForegroundColor}" />
                                     </Style>
                                     <Style
                                         x:Key="CustomCalendar"
                                         BasedOn="{StaticResource MaterialDesignDatePickerCalendarPortrait}"
                                         TargetType="{x:Type Calendar}">
-                                        <Setter Property="Background" Value="{StaticResource SubBackgroundColor}" />
-                                        <Setter Property="Foreground" Value="{StaticResource ForegroundColor}" />
-                                        <Setter Property="materialDesign:CalendarAssist.HeaderBackground" Value="{StaticResource IconColor}" />
-                                        <Setter Property="materialDesign:CalendarAssist.HeaderForeground" Value="{StaticResource ForegroundColor}" />
+                                        <Setter Property="Background" Value="{DynamicResource SubBackgroundColor}" />
+                                        <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+                                        <Setter Property="materialDesign:CalendarAssist.HeaderBackground" Value="{DynamicResource IconColor}" />
+                                        <Setter Property="materialDesign:CalendarAssist.HeaderForeground" Value="{DynamicResource ForegroundColor}" />
                                         <Setter Property="CalendarDayButtonStyle" Value="{StaticResource CustomCalendarDayButton}" />
                                         <Setter Property="CalendarButtonStyle" Value="{StaticResource CustomCalendarButton}" />
                                     </Style>

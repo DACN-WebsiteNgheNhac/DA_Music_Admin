@@ -33,7 +33,7 @@
 
         <Style x:Key="tblStyle" TargetType="TextBlock">
             <Setter Property="FontSize" Value="{StaticResource TextSize}" />
-            <Setter Property="Foreground" Value="{StaticResource ForegroundColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
             <Setter Property="FontFamily" Value="Montserrat" />
             <Setter Property="Focusable" Value="False" />
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
@@ -49,13 +49,13 @@
             BasedOn="{StaticResource MaterialDesignFlatMidBgButton}"
             TargetType="Button">
             <Setter Property="FontSize" Value="{StaticResource TextSize}" />
-            <Setter Property="Foreground" Value="{StaticResource ForegroundInIconColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource ForegroundInIconColor}" />
             <Setter Property="FontFamily" Value="Montserrat" />
             <Setter Property="Focusable" Value="False" />
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="Background" Value="{StaticResource IconColor}" />
+            <Setter Property="Background" Value="{DynamicResource IconColor}" />
             <Setter Property="Height" Value="35" />
             <Setter Property="Content" Value="Chọn" />
             <Setter Property="BorderBrush" Value="Transparent" />
@@ -67,7 +67,7 @@
             TargetType="TextBox">
             <Setter Property="FontFamily" Value="Montserrat" />
             <Setter Property="Margin" Value="0,0,0,5" />
-            <Setter Property="BorderBrush" Value="{StaticResource ForegroundColor}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ForegroundColor}" />
         </Style>
 
 
@@ -100,7 +100,7 @@
 
                 <Border
                     Padding="10"
-                    Background="{StaticResource SubBackgroundColor}"
+                    Background="{DynamicResource SubBackgroundColor}"
                     CornerRadius="{StaticResource CornerRadius_V3}">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -303,7 +303,7 @@
                     Grid.Column="1"
                     Margin="10,0,0,0"
                     Padding="10"
-                    Background="{StaticResource SubBackgroundColor}"
+                    Background="{DynamicResource SubBackgroundColor}"
                     CornerRadius="{StaticResource CornerRadius_V3}">
 
                     <Grid x:Name="ContainerInputs" Margin="20,0,20,0">

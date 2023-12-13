@@ -1,4 +1,6 @@
-﻿using DA_Music_Admin.ViewModels;
+﻿using CustomControls.Utils;
+using DA_Music_Admin.Themes;
+using DA_Music_Admin.ViewModels;
 using System.Windows;
 using System.Windows.Media.Animation;
 
@@ -48,6 +50,11 @@ namespace DA_Music_Admin.Views
                 }
             }
         }
-     
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ThemeController.ChangeTheme(new System.Uri("Themes/Light.xaml", System.UriKind.Relative));
+            ColorConst.Register(this);
+        }
     }
 }

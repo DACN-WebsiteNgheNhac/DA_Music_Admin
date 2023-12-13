@@ -5,10 +5,15 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>removal.ai__89e3c2c8-dddb-48c0-95ca-642d026ef3a0-7123d56b-d6bb-420f-80e4-8c15e9bdce83.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Resources\bg.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="removal.ai__89e3c2c8-dddb-48c0-95ca-642d026ef3a0-7123d56b-d6bb-420f-80e4-8c15e9bdce83.ico" />
   </ItemGroup>
 
   <ItemGroup>

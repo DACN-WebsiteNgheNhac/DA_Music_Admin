@@ -427,7 +427,7 @@ namespace DA_Music_Admin.ViewModels
         {
             if (string.IsNullOrEmpty(Data.Name))
                 return "Không thể bỏ trống tựa đề bài hát!";
-            if (string.IsNullOrEmpty(Data.SongUrl) || string.IsNullOrEmpty(primaryAudioFile))
+            if (string.IsNullOrEmpty(Data.SongUrl) && string.IsNullOrEmpty(primaryAudioFile))
                 return "Không thể bỏ trống file audio!";
             if (string.IsNullOrEmpty(Data.Area))
                 return "Không thể bỏ trống khu vực!";

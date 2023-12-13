@@ -82,21 +82,21 @@ namespace DA_Music_Admin.ViewModels
 
                 if(value == "7 ngày trước")
                 {
-                    fromDate.AddDays(-7);
+                    fromDate = fromDate.AddDays(-7);
                 }
                 else if (value == "2 tuần trước")
                 {
-                    fromDate.AddDays(-7 * 2);
+                    fromDate = fromDate.AddDays(-7 * 2);
 
                 }
                 else if (value == "3 tuần trước")
                 {
-                    fromDate.AddDays(-7 * 3);
+                    fromDate = fromDate.AddDays(-7 * 3);
 
                 }
                 else if (value == "4 tuần trước")
                 {
-                    fromDate.AddDays(-7 * 4);
+                    fromDate = fromDate.AddDays(-7 * 4);
 
                 }
                 LoadDataCartesianChart(fromDate, toDate);
@@ -401,30 +401,37 @@ namespace DA_Music_Admin.ViewModels
             target.Series.Clear();
             target.AxisX.Clear();
             target.AxisY.Clear();
-
             target.Series = new SeriesCollection
             {
                 new LineSeries
                 {
                     Title = titleColumn,
-                    Values = new ChartValues<T>(dataColumn)
+                    Values = new ChartValues<T>(dataColumn),
+                    Fill = new SolidColorBrush(ColorConst.foregroundColor_40),
+                    Stroke = new SolidColorBrush(ColorConst.foregroundColor)
                 }
             };
-
 
             target.AxisX.Add(new Axis
             {
                 Title = titleX,
                 Labels = valuesX,
                 Foreground = new SolidColorBrush(ColorConst.foregroundColor),
-
+                Separator = new LiveCharts.Wpf.Separator{ Stroke = Brushes.Transparent}
             });
 
             target.AxisY.Add(new Axis
             {
                 Title = titleY,
                 Foreground = new SolidColorBrush(ColorConst.foregroundColor),
-                LabelFormatter = value => value.ToString("#,##0 tài khoản mới")
+                LabelFormatter = value => value.ToString("#,##0 tài khoản"),
+                Separator = new LiveCharts.Wpf.Separator 
+                { 
+                    Stroke = new SolidColorBrush(ColorConst.foregroundColor_40),
+                    StrokeDashArray = new DoubleCollection(new double[] {3,7}),
+                    StrokeThickness = 1
+                }
+
             });
 
         }

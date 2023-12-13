@@ -26,7 +26,7 @@
     <Page.Resources>
 
         <Style x:Key="TextBlockInDataGrid" TargetType="TextBlock">
-            <Setter Property="Foreground" Value="{StaticResource ForegroundColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
             <Setter Property="Focusable" Value="False" />
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
             <Setter Property="TextAlignment" Value="Justify" />
@@ -40,8 +40,8 @@
             BasedOn="{StaticResource MaterialDesignFlatMidBgButton}"
             TargetType="Button">
             <Setter Property="FontSize" Value="{StaticResource TextSize}" />
-            <Setter Property="Foreground" Value="{StaticResource ForegroundColor}" />
-            <Setter Property="Background" Value="{StaticResource IconColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+            <Setter Property="Background" Value="{DynamicResource IconColor}" />
             <Setter Property="FontWeight" Value="DemiBold" />
             <Setter Property="Focusable" Value="False" />
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
@@ -60,7 +60,7 @@
         </Style>
 
         <Style x:Key="border" TargetType="Border">
-            <Setter Property="Background" Value="{StaticResource BackgroundColor}" />
+            <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
             <Setter Property="Padding" Value="10" />
             <Setter Property="CornerRadius" Value="{StaticResource CornerRadius_V3}" />
             <Setter Property="UseLayoutRounding" Value="True" />
@@ -88,7 +88,7 @@
 
     </Page.Resources>
 
-    <Border Background="{StaticResource SubBackgroundColor}" Style="{StaticResource border}">
+    <Border Background="{DynamicResource SubBackgroundColor}" Style="{StaticResource border}">
 
         <!--#region First slide-->
         <Canvas AllowDrop="True">
@@ -130,7 +130,7 @@
                                 Padding="0,0,40,5"
                                 materialDesign:HintAssist.Hint="Nhập tên tài khoản"
                                 AllowDrop="True"
-                                BorderBrush="{StaticResource ForegroundColor}"
+                                BorderBrush="{DynamicResource ForegroundColor}"
                                 Style="{StaticResource CustomHintTextBox}"
                                 Text="{Binding Query, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
@@ -155,7 +155,7 @@
                                 <fa:ImageAwesome
                                     Width="12"
                                     Height="12"
-                                    Foreground="{StaticResource ForegroundColor}"
+                                    Foreground="{DynamicResource ForegroundColor}"
                                     Icon="Close" />
 
                             </Button>
@@ -180,7 +180,7 @@
                             <fa:ImageAwesome
                                 Width="22"
                                 Height="25"
-                                Foreground="{StaticResource ForegroundColor}"
+                                Foreground="{DynamicResource ForegroundColor}"
                                 Icon="Search" />
                         </Button>
 
@@ -210,35 +210,35 @@
                             Margin="15,0,0,0"
                             materialDesign:HintAssist.FloatingScale="0.7"
                             materialDesign:HintAssist.Hint="Ngày tạo"
-                            materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource IconColor}"
+                            materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource IconColor}"
                             FontSize="{StaticResource SmallTextSize}"
-                            Foreground="{StaticResource ForegroundColor}"
+                            Foreground="{DynamicResource ForegroundColor}"
                             SelectedDate="{Binding FromDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat='dd-MM-yyyy'}">
                             <DatePicker.Resources>
-                                <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="{StaticResource ColorIconColor}" />
+                                <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="{DynamicResource ColorIconColor}" />
 
                                 <Style
                                     x:Key="CustomCalendarDayButton"
                                     BasedOn="{StaticResource MaterialDesignCalendarDayButton}"
                                     TargetType="CalendarDayButton">
-                                    <Setter Property="materialDesign:CalendarAssist.SelectionColor" Value="{StaticResource IconColor}" />
-                                    <Setter Property="materialDesign:CalendarAssist.SelectionForegroundColor" Value="{StaticResource ForegroundColor}" />
+                                    <Setter Property="materialDesign:CalendarAssist.SelectionColor" Value="{DynamicResource IconColor}" />
+                                    <Setter Property="materialDesign:CalendarAssist.SelectionForegroundColor" Value="{DynamicResource ForegroundColor}" />
                                 </Style>
                                 <Style
                                     x:Key="CustomCalendarButton"
                                     BasedOn="{StaticResource MaterialDesignCalendarButton}"
                                     TargetType="CalendarButton">
-                                    <Setter Property="materialDesign:CalendarAssist.SelectionColor" Value="{StaticResource IconColor}" />
-                                    <Setter Property="materialDesign:CalendarAssist.SelectionForegroundColor" Value="{StaticResource ForegroundColor}" />
+                                    <Setter Property="materialDesign:CalendarAssist.SelectionColor" Value="{DynamicResource IconColor}" />
+                                    <Setter Property="materialDesign:CalendarAssist.SelectionForegroundColor" Value="{DynamicResource ForegroundColor}" />
                                 </Style>
                                 <Style
                                     x:Key="CustomCalendar"
                                     BasedOn="{StaticResource MaterialDesignDatePickerCalendarPortrait}"
                                     TargetType="{x:Type Calendar}">
-                                    <Setter Property="Background" Value="{StaticResource SubBackgroundColor}" />
-                                    <Setter Property="Foreground" Value="{StaticResource ForegroundColor}" />
-                                    <Setter Property="materialDesign:CalendarAssist.HeaderBackground" Value="{StaticResource IconColor}" />
-                                    <Setter Property="materialDesign:CalendarAssist.HeaderForeground" Value="{StaticResource ForegroundColor}" />
+                                    <Setter Property="Background" Value="{DynamicResource SubBackgroundColor}" />
+                                    <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+                                    <Setter Property="materialDesign:CalendarAssist.HeaderBackground" Value="{DynamicResource IconColor}" />
+                                    <Setter Property="materialDesign:CalendarAssist.HeaderForeground" Value="{DynamicResource ForegroundColor}" />
                                     <Setter Property="CalendarDayButtonStyle" Value="{StaticResource CustomCalendarDayButton}" />
                                     <Setter Property="CalendarButtonStyle" Value="{StaticResource CustomCalendarButton}" />
                                 </Style>
@@ -254,35 +254,35 @@
                             Margin="15,0,0,0"
                             materialDesign:HintAssist.FloatingScale="0.7"
                             materialDesign:HintAssist.Hint="Ngày tạo"
-                            materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource IconColor}"
+                            materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource IconColor}"
                             FontSize="{StaticResource SmallTextSize}"
-                            Foreground="{StaticResource ForegroundColor}"
+                            Foreground="{DynamicResource ForegroundColor}"
                             SelectedDate="{Binding ToDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat='dd-MM-yyyy'}">
                             <DatePicker.Resources>
-                                <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="{StaticResource ColorIconColor}" />
+                                <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="{DynamicResource ColorIconColor}" />
 
                                 <Style
                                     x:Key="CustomCalendarDayButton"
                                     BasedOn="{StaticResource MaterialDesignCalendarDayButton}"
                                     TargetType="CalendarDayButton">
-                                    <Setter Property="materialDesign:CalendarAssist.SelectionColor" Value="{StaticResource IconColor}" />
-                                    <Setter Property="materialDesign:CalendarAssist.SelectionForegroundColor" Value="{StaticResource ForegroundColor}" />
+                                    <Setter Property="materialDesign:CalendarAssist.SelectionColor" Value="{DynamicResource IconColor}" />
+                                    <Setter Property="materialDesign:CalendarAssist.SelectionForegroundColor" Value="{DynamicResource ForegroundColor}" />
                                 </Style>
                                 <Style
                                     x:Key="CustomCalendarButton"
                                     BasedOn="{StaticResource MaterialDesignCalendarButton}"
                                     TargetType="CalendarButton">
-                                    <Setter Property="materialDesign:CalendarAssist.SelectionColor" Value="{StaticResource IconColor}" />
-                                    <Setter Property="materialDesign:CalendarAssist.SelectionForegroundColor" Value="{StaticResource ForegroundColor}" />
+                                    <Setter Property="materialDesign:CalendarAssist.SelectionColor" Value="{DynamicResource IconColor}" />
+                                    <Setter Property="materialDesign:CalendarAssist.SelectionForegroundColor" Value="{DynamicResource ForegroundColor}" />
                                 </Style>
                                 <Style
                                     x:Key="CustomCalendar"
                                     BasedOn="{StaticResource MaterialDesignDatePickerCalendarPortrait}"
                                     TargetType="{x:Type Calendar}">
-                                    <Setter Property="Background" Value="{StaticResource SubBackgroundColor}" />
-                                    <Setter Property="Foreground" Value="{StaticResource ForegroundColor}" />
-                                    <Setter Property="materialDesign:CalendarAssist.HeaderBackground" Value="{StaticResource IconColor}" />
-                                    <Setter Property="materialDesign:CalendarAssist.HeaderForeground" Value="{StaticResource ForegroundColor}" />
+                                    <Setter Property="Background" Value="{DynamicResource SubBackgroundColor}" />
+                                    <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+                                    <Setter Property="materialDesign:CalendarAssist.HeaderBackground" Value="{DynamicResource IconColor}" />
+                                    <Setter Property="materialDesign:CalendarAssist.HeaderForeground" Value="{DynamicResource ForegroundColor}" />
                                     <Setter Property="CalendarDayButtonStyle" Value="{StaticResource CustomCalendarDayButton}" />
                                     <Setter Property="CalendarButtonStyle" Value="{StaticResource CustomCalendarButton}" />
                                 </Style>
@@ -313,7 +313,7 @@
                             <fa:ImageAwesome
                                 Width="20"
                                 Height="20"
-                                Foreground="{StaticResource ForegroundInIconColor}"
+                                Foreground="{DynamicResource ForegroundInIconColor}"
                                 Icon="PlusCircle" />
                         </Button>
                     </Grid>
@@ -330,14 +330,14 @@
                     x:FieldModifier="public"
                     AllowDrop="True"
                     AutoGenerateColumns="False"
-                    Background="{StaticResource SubBackgroundColor}"
+                    Background="{DynamicResource SubBackgroundColor}"
                     ColumnWidth="*"
                     FocusVisualStyle="{x:Null}"
                     Focusable="False"
                     FontSize="{StaticResource TextSize}"
                     FontWeight="Normal"
-                    Foreground="{StaticResource ForegroundColor}"
-                    HorizontalGridLinesBrush="{StaticResource ForegroundColor_20}"
+                    Foreground="{DynamicResource ForegroundColor}"
+                    HorizontalGridLinesBrush="{DynamicResource ForegroundColor_20}"
                     HorizontalScrollBarVisibility="Visible"
                     IsReadOnly="True"
                     ItemsSource="{Binding DataUser, IsAsync=True}"
@@ -359,7 +359,7 @@
 
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="{StaticResource ForegroundColor_20}" />
+                                    <Setter Property="Background" Value="{DynamicResource ForegroundColor_20}" />
                                 </Trigger>
                             </Style.Triggers>
 
@@ -378,8 +378,8 @@
 
                     <DataGrid.Resources>
                         <Style BasedOn="{StaticResource CustomScrollBar}" TargetType="ScrollBar">
-                            <Setter Property="Foreground" Value="{StaticResource ForegroundColor_60}" />
-                            <Setter Property="BorderBrush" Value="{StaticResource IconColor}" />
+                            <Setter Property="Foreground" Value="{DynamicResource ForegroundColor_60}" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource IconColor}" />
                             <Setter Property="FontSize" Value="4" />
                         </Style>
                     </DataGrid.Resources>
@@ -393,7 +393,7 @@
                             IsReadOnly="True">
                             <DataGridTemplateColumn.HeaderTemplate>
                                 <DataTemplate>
-                                    <TextBlock Foreground="{StaticResource ForegroundColor}" Text="Id" />
+                                    <TextBlock Foreground="{DynamicResource ForegroundColor}" Text="Id" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.HeaderTemplate>
                             <DataGridTemplateColumn.CellTemplate>
@@ -414,7 +414,7 @@
                             IsReadOnly="True">
                             <DataGridTemplateColumn.HeaderTemplate>
                                 <DataTemplate>
-                                    <TextBlock Foreground="{StaticResource ForegroundColor}" Text="Ảnh bìa" />
+                                    <TextBlock Foreground="{DynamicResource ForegroundColor}" Text="Ảnh bìa" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.HeaderTemplate>
                             <DataGridTemplateColumn.CellTemplate>
@@ -427,7 +427,7 @@
                                         FocusVisualStyle="{x:Null}"
                                         Focusable="False"
                                         ImageURL="{Binding Image, Mode=OneWay}"
-                                        LoadingColor="{StaticResource ForegroundColor_40}"
+                                        LoadingColor="{DynamicResource ForegroundColor_40}"
                                         RenderTransformOrigin="0.5,0.5">
 
                                         <!--<cc:RoundedImage.Background>
@@ -443,7 +443,7 @@
                         <DataGridTemplateColumn Header="Tài khoản" IsReadOnly="True">
                             <DataGridTemplateColumn.HeaderTemplate>
                                 <DataTemplate>
-                                    <TextBlock Foreground="{StaticResource ForegroundColor}" Text="Tài khoản" />
+                                    <TextBlock Foreground="{DynamicResource ForegroundColor}" Text="Tài khoản" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.HeaderTemplate>
                             <DataGridTemplateColumn.CellTemplate>
@@ -462,7 +462,7 @@
                         <DataGridTemplateColumn Header="Sinh nhật" IsReadOnly="True">
                             <DataGridTemplateColumn.HeaderTemplate>
                                 <DataTemplate>
-                                    <TextBlock Foreground="{StaticResource ForegroundColor}" Text="Sinh nhật" />
+                                    <TextBlock Foreground="{DynamicResource ForegroundColor}" Text="Sinh nhật" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.HeaderTemplate>
                             <DataGridTemplateColumn.CellTemplate>
@@ -480,7 +480,7 @@
                         <DataGridTemplateColumn Header="Giới tính" IsReadOnly="True">
                             <DataGridTemplateColumn.HeaderTemplate>
                                 <DataTemplate>
-                                    <TextBlock Foreground="{StaticResource ForegroundColor}" Text="Giới tính" />
+                                    <TextBlock Foreground="{DynamicResource ForegroundColor}" Text="Giới tính" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.HeaderTemplate>
                             <DataGridTemplateColumn.CellTemplate>
@@ -498,7 +498,7 @@
                         <DataGridTemplateColumn Header="Quyền" IsReadOnly="True">
                             <DataGridTemplateColumn.HeaderTemplate>
                                 <DataTemplate>
-                                    <TextBlock Foreground="{StaticResource ForegroundColor}" Text="Quyền" />
+                                    <TextBlock Foreground="{DynamicResource ForegroundColor}" Text="Quyền" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.HeaderTemplate>
                             <DataGridTemplateColumn.CellTemplate>
@@ -516,7 +516,7 @@
                         <DataGridTemplateColumn Header="Ngày tạo" IsReadOnly="True">
                             <DataGridTemplateColumn.HeaderTemplate>
                                 <DataTemplate>
-                                    <TextBlock Foreground="{StaticResource ForegroundColor}" Text="Ngày tạo" />
+                                    <TextBlock Foreground="{DynamicResource ForegroundColor}" Text="Ngày tạo" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.HeaderTemplate>
                             <DataGridTemplateColumn.CellTemplate>
@@ -537,7 +537,7 @@
                         <DataGridTemplateColumn Header="Ngày cập nhật" IsReadOnly="True">
                             <DataGridTemplateColumn.HeaderTemplate>
                                 <DataTemplate>
-                                    <TextBlock Foreground="{StaticResource ForegroundColor}" Text="Ngày cập nhật" />
+                                    <TextBlock Foreground="{DynamicResource ForegroundColor}" Text="Ngày cập nhật" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.HeaderTemplate>
                             <DataGridTemplateColumn.CellTemplate>
@@ -558,7 +558,7 @@
                         <DataGridTemplateColumn Width="Auto">
                             <DataGridTemplateColumn.HeaderTemplate>
                                 <DataTemplate>
-                                    <TextBlock Foreground="{StaticResource ForegroundColor}" Text="Chức năng" />
+                                    <TextBlock Foreground="{DynamicResource ForegroundColor}" Text="Chức năng" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.HeaderTemplate>
                             <DataGridTemplateColumn.CellTemplate>
@@ -573,7 +573,7 @@
                                             <fa:ImageAwesome
                                                 Width="20"
                                                 Height="20"
-                                                Foreground="{StaticResource ForegroundInIconColor}"
+                                                Foreground="{DynamicResource ForegroundInIconColor}"
                                                 Icon="Edit" />
                                         </Button>
                                         <Button
@@ -589,7 +589,7 @@
                                                 Height="20"
                                                 HorizontalAlignment="Center"
                                                 VerticalAlignment="Center"
-                                                Foreground="{StaticResource ForegroundInIconColor}"
+                                                Foreground="{DynamicResource ForegroundInIconColor}"
                                                 Icon="Trash" />
                                         </Button>
                                     </StackPanel>
@@ -613,15 +613,15 @@
                         <TextBlock
                             VerticalAlignment="Center"
                             FontSize="{StaticResource SmallTextSize}"
-                            Foreground="{StaticResource ForegroundColor}"
+                            Foreground="{DynamicResource ForegroundColor}"
                             Text="Số dòng dữ liệu"
                             TextAlignment="Center" />
                         <ComboBox
                             Width="120"
                             Margin="10,0,0,0"
-                            materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource IconColor}"
+                            materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource IconColor}"
                             FontSize="{StaticResource SmallTextSize}"
-                            Foreground="{StaticResource ForegroundColor}"
+                            Foreground="{DynamicResource ForegroundColor}"
                             ItemsSource="{Binding ItemsEntries, IsAsync=True}"
                             SelectedItem="{Binding SelectedEntry, Mode=TwoWay, IsAsync=True}" />
                     </StackPanel>
@@ -638,7 +638,7 @@
                                     </Interaction:EventTrigger>
                                 </Interaction:Interaction.Triggers>
 
-                                <fa:ImageAwesome Foreground="{StaticResource ForegroundColor}" Icon="AngleDoubleLeft" />
+                                <fa:ImageAwesome Foreground="{DynamicResource ForegroundColor}" Icon="AngleDoubleLeft" />
 
                             </Button>
 
@@ -649,7 +649,7 @@
                                     </Interaction:EventTrigger>
                                 </Interaction:Interaction.Triggers>
 
-                                <fa:ImageAwesome Foreground="{StaticResource ForegroundColor}" Icon="AngleLeft" />
+                                <fa:ImageAwesome Foreground="{DynamicResource ForegroundColor}" Icon="AngleLeft" />
 
                             </Button>
 
@@ -660,7 +660,7 @@
                                     </Interaction:EventTrigger>
                                 </Interaction:Interaction.Triggers>
 
-                                <fa:ImageAwesome Foreground="{StaticResource ForegroundColor}" Icon="AngleRight" />
+                                <fa:ImageAwesome Foreground="{DynamicResource ForegroundColor}" Icon="AngleRight" />
 
                             </Button>
 
@@ -671,7 +671,7 @@
                                     </Interaction:EventTrigger>
                                 </Interaction:Interaction.Triggers>
 
-                                <fa:ImageAwesome Foreground="{StaticResource ForegroundColor}" Icon="AngleDoubleRight" />
+                                <fa:ImageAwesome Foreground="{DynamicResource ForegroundColor}" Icon="AngleDoubleRight" />
 
                             </Button>
 
@@ -686,23 +686,23 @@
                                     </Interaction:EventTrigger>
                                 </Interaction:Interaction.Triggers>
 
-                                <fa:ImageAwesome Foreground="{StaticResource ForegroundColor}" Icon="ChevronCircleRight" />
+                                <fa:ImageAwesome Foreground="{DynamicResource ForegroundColor}" Icon="ChevronCircleRight" />
                             </Button>
                             <TextBlock
                                 VerticalAlignment="Center"
                                 FlowDirection="LeftToRight"
                                 FontSize="{StaticResource SmallTextSize}"
-                                Foreground="{StaticResource ForegroundColor}"
+                                Foreground="{DynamicResource ForegroundColor}"
                                 Text="{Binding TotalPage, StringFormat='/0'}"
                                 TextAlignment="Center" />
                             <TextBox
                                 Width="40"
-                                materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource IconColor}"
-                                CaretBrush="{StaticResource ForegroundColor}"
+                                materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource IconColor}"
+                                CaretBrush="{DynamicResource ForegroundColor}"
                                 FlowDirection="LeftToRight"
                                 FontSize="{StaticResource SmallTextSize}"
-                                Foreground="{StaticResource ForegroundColor}"
-                                SelectionBrush="{StaticResource IconColor}"
+                                Foreground="{DynamicResource ForegroundColor}"
+                                SelectionBrush="{DynamicResource IconColor}"
                                 Text="{Binding CurrentPage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
                         </StackPanel>

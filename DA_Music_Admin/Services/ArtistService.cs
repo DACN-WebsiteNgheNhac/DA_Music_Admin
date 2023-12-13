@@ -112,7 +112,6 @@ namespace Services
              || string.IsNullOrEmpty(t.Description) ? true : t.Description.Contains(query)
              || t.ArtistSongs.Count == 0 ? true : t.ArtistSongs.Any(t => t.Song.Name.Contains(query) || string.IsNullOrEmpty(t.Song.Description) ? true : t.Song.Description.Contains(query)))
              && (t.DeletedAt == null
-             && t.Gender.Contains(gender)
              && string.IsNullOrEmpty(t.National) ? true : t.National.Contains(national));
 
             if (pageNumber < 0 || pageSize < 0)
@@ -120,12 +119,14 @@ namespace Services
                     .Include(t => t.ArtistSongs)
                     .ThenInclude(t => t.Song).AsNoTracking()
                     .Where(predicate)
+                    .Where(t => t.Gender.Contains(gender))
                     .OrderByDescending(t => t.CreatedAt)
                     .ToListAsync();
             return await _context.Set<Artist>().AsNoTracking()
                     .Include(t => t.ArtistSongs)
                     .ThenInclude(t => t.Song).AsNoTracking()
                     .Where(predicate)
+                    .Where(t => t.Gender.Contains(gender))
                     .OrderByDescending(t => t.CreatedAt)
                     .Skip((pageNumber - 1) * pageSize).Take(pageSize)
                     .ToListAsync();

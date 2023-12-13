@@ -18,13 +18,13 @@
 
         <LinearGradientBrush x:Key="GradientColorRing" StartPoint="0.5,0" EndPoint="0.5,1">
             <GradientStopCollection>
-                <GradientStop Offset="0.5" Color="{StaticResource ColorIconColor}" />
+                <GradientStop Offset="0.5" Color="{DynamicResource ColorIconColor}" />
                 <GradientStop Offset="0.5" Color="Transparent" />
             </GradientStopCollection>
         </LinearGradientBrush>
 
         <Style x:Key="SpinnerRing" TargetType="Border">
-            <Setter Property="BorderBrush" Value="{StaticResource GradientColorRing}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource GradientColorRing}" />
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="UseLayoutRounding" Value="True" />
             <Setter Property="BorderThickness" Value="2" />

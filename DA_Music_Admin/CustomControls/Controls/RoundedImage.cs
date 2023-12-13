@@ -13,6 +13,13 @@ namespace CustomControls.Controls
 {
     public class RoundedImage : Border, INotifyPropertyChanged
     {
+        public static readonly DependencyProperty LoadingColorProperty =
+        DependencyProperty.Register(
+            nameof(LoadingColor),
+            typeof(Brush),
+            typeof(RoundedImage),
+            new PropertyMetadata(Brushes.LightGray));
+
         private Brush _LoadingColor = Brushes.LightGray;
         public Brush LoadingColor
         {

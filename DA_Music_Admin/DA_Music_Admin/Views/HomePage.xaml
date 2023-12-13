@@ -45,7 +45,7 @@
                         <Border
                             Padding="0,0,0,7"
                             Background="{TemplateBinding Background}"
-                            BorderBrush="{StaticResource ForegroundColor_20}"
+                            BorderBrush="{DynamicResource ForegroundColor_20}"
                             BorderThickness="0,0,0,1">
                             <Grid>
                                 <Grid>
@@ -68,7 +68,7 @@
                                         FocusVisualStyle="{x:Null}"
                                         Focusable="False"
                                         ImageURL="{Binding Image, Mode=OneWay}"
-                                        LoadingColor="{StaticResource ForegroundColor_40}"
+                                        LoadingColor="{DynamicResource ForegroundColor_40}"
                                         RenderOptions.BitmapScalingMode="HighQuality"
                                         RenderTransformOrigin="0.5,0.5"
                                         StretchImage="UniformToFill" />
@@ -93,7 +93,7 @@
                                                 VerticalAlignment="Center"
                                                 FontSize="{StaticResource TextSize}"
                                                 FontWeight="Bold"
-                                                Foreground="{StaticResource ForegroundColor}"
+                                                Foreground="{DynamicResource ForegroundColor}"
                                                 Text="{Binding Id}"
                                                 TextAlignment="Left" />
 
@@ -103,7 +103,7 @@
                                                 VerticalAlignment="Center"
                                                 FontSize="{StaticResource TextSizeError}"
                                                 FontStyle="Italic"
-                                                Foreground="{StaticResource ForegroundColor_60}"
+                                                Foreground="{DynamicResource ForegroundColor_60}"
                                                 Text="{Binding CreatedAt, StringFormat='{StaticResource FormatDate}'}" />
 
                                             <!--<TextBlock
@@ -128,7 +128,7 @@
                                             MaxHeight="100"
                                             HorizontalAlignment="Left"
                                             FontSize="{StaticResource SmallTextSize}"
-                                            Foreground="{StaticResource ForegroundColor}"
+                                            Foreground="{DynamicResource ForegroundColor}"
                                             Text="{Binding Username}"
                                             TextTrimming="CharacterEllipsis"
                                             TextWrapping="Wrap" />
@@ -141,7 +141,7 @@
                                         Height="20"
                                         Margin="0,0,5,0"
                                         VerticalAlignment="Center"
-                                        Foreground="{StaticResource IconColor}"
+                                        Foreground="{DynamicResource IconColor}"
                                         Kind="EyeOff"
                                         ToolTip="Đã ẩn"
                                         Visibility="{Binding DeletedAt, Converter={StaticResource ConverterDateTimeOffsetToVisibility}}" />
@@ -171,7 +171,7 @@
                         <Border
                             Padding="0,0,0,7"
                             Background="{TemplateBinding Background}"
-                            BorderBrush="{StaticResource ForegroundColor_20}"
+                            BorderBrush="{DynamicResource ForegroundColor_20}"
                             BorderThickness="0,0,0,1">
                             <Grid>
                                 <Grid>
@@ -194,7 +194,7 @@
                                         FocusVisualStyle="{x:Null}"
                                         Focusable="False"
                                         ImageURL="{Binding Image, Mode=OneWay}"
-                                        LoadingColor="{StaticResource ForegroundColor_40}"
+                                        LoadingColor="{DynamicResource ForegroundColor_40}"
                                         RenderOptions.BitmapScalingMode="HighQuality"
                                         RenderTransformOrigin="0.5,0.5"
                                         StretchImage="UniformToFill" />
@@ -219,7 +219,7 @@
                                                 VerticalAlignment="Center"
                                                 FontSize="{StaticResource TextSize}"
                                                 FontWeight="Bold"
-                                                Foreground="{StaticResource ForegroundColor}"
+                                                Foreground="{DynamicResource ForegroundColor}"
                                                 Text="{Binding Id}"
                                                 TextAlignment="Left" />
 
@@ -229,7 +229,7 @@
                                                 VerticalAlignment="Center"
                                                 FontSize="{StaticResource TextSizeError}"
                                                 FontStyle="Italic"
-                                                Foreground="{StaticResource ForegroundColor_60}"
+                                                Foreground="{DynamicResource ForegroundColor_60}"
                                                 Text="{Binding CreatedAt, StringFormat='{StaticResource FormatDate}'}" />
 
                                             <TextBlock
@@ -238,7 +238,7 @@
                                                 VerticalAlignment="Center"
                                                 FontSize="{StaticResource TextSizeError}"
                                                 FontStyle="Italic"
-                                                Foreground="{StaticResource ForegroundColor_60}"
+                                                Foreground="{DynamicResource ForegroundColor_60}"
                                                 Text="{Binding Downloads, StringFormat='Downloads #,##0'}"
                                                 TextTrimming="CharacterEllipsis"
                                                 ToolTip="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text, Mode=OneWay}"
@@ -250,7 +250,7 @@
                                                 VerticalAlignment="Center"
                                                 FontSize="{StaticResource TextSizeError}"
                                                 FontStyle="Italic"
-                                                Foreground="{StaticResource ForegroundColor_60}"
+                                                Foreground="{DynamicResource ForegroundColor_60}"
                                                 Text="{Binding Listens, StringFormat='Listens #,##0'}"
                                                 TextTrimming="CharacterEllipsis"
                                                 ToolTip="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text, Mode=OneWay}"
@@ -265,7 +265,7 @@
                                             MaxWidth="240"
                                             HorizontalAlignment="Left"
                                             FontSize="{StaticResource SmallTextSize}"
-                                            Foreground="{StaticResource ForegroundColor}"
+                                            Foreground="{DynamicResource ForegroundColor}"
                                             Text="{Binding Name}"
                                             TextTrimming="CharacterEllipsis" />
 
@@ -277,7 +277,7 @@
                                         Height="20"
                                         Margin="0,0,5,0"
                                         VerticalAlignment="Center"
-                                        Foreground="{StaticResource IconColor}"
+                                        Foreground="{DynamicResource IconColor}"
                                         Kind="EyeOff"
                                         ToolTip="Đã ẩn"
                                         Visibility="{Binding DeletedAt, Converter={StaticResource ConverterDateTimeOffsetToVisibility}}" />
@@ -293,8 +293,8 @@
         </Style>
 
         <Style BasedOn="{StaticResource CustomScrollBar}" TargetType="ScrollBar">
-            <Setter Property="Foreground" Value="{StaticResource ForegroundColor_60}" />
-            <Setter Property="BorderBrush" Value="{StaticResource IconColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource ForegroundColor_60}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource IconColor}" />
             <Setter Property="FontSize" Value="7" />
         </Style>
 
@@ -322,7 +322,7 @@
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
                     Padding="10"
-                    Background="{StaticResource IconColor}"
+                    Background="{DynamicResource IconColor}"
                     CornerRadius="{StaticResource CornerRadius_V3}">
                     <Grid>
 
@@ -342,17 +342,17 @@
                             Height="45"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
-                            Foreground="{StaticResource ForegroundColor}"
+                            Foreground="{DynamicResource ForegroundColor}"
                             Kind="MusicAccidentalNatural" />
 
                         <TextBlock
                             Grid.Column="1"
                             Margin="10,0,0,0"
                             VerticalAlignment="Bottom"
-                            Background="{StaticResource IconColor}"
+                            Background="{DynamicResource IconColor}"
                             FontSize="{StaticResource TextSize}"
                             FontWeight="DemiBold"
-                            Foreground="{StaticResource ForegroundColor}"
+                            Foreground="{DynamicResource ForegroundColor}"
                             Text="{Binding WelcomeText}" />
 
                         <TextBlock
@@ -360,10 +360,10 @@
                             Grid.Column="1"
                             Margin="10,0,0,0"
                             VerticalAlignment="Top"
-                            Background="{StaticResource IconColor}"
+                            Background="{DynamicResource IconColor}"
                             FontSize="{StaticResource TextSize}"
                             FontWeight="DemiBold"
-                            Foreground="{StaticResource ForegroundColor}"
+                            Foreground="{DynamicResource ForegroundColor}"
                             Text="Soundtrack to Your Soul: Elevate Every Moment with Our Melodic Universe!" />
                     </Grid>
                 </Border>
@@ -383,7 +383,7 @@
                 <TextBlock
                     FontSize="{StaticResource TextSize}"
                     FontWeight="Bold"
-                    Foreground="{StaticResource ForegroundColor}"
+                    Foreground="{DynamicResource ForegroundColor}"
                     Text="Tổng quan" />
 
                 <Grid x:Name="gContainerInformationCard" Margin="0,10,0,0">
@@ -423,7 +423,7 @@
                     Padding="10"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
-                    Background="{StaticResource SubBackgroundColor}"
+                    Background="{DynamicResource SubBackgroundColor}"
                     CornerRadius="{StaticResource CornerRadius_V3}">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -434,15 +434,15 @@
                             Grid.Row="0"
                             FontSize="{StaticResource SmallTextSize}"
                             FontWeight="DemiBold"
-                            Foreground="{StaticResource ForegroundColor}"
+                            Foreground="{DynamicResource ForegroundColor}"
                             Text="Thông kế nghệ sỹ theo thị trường" />
                         <lc:PieChart
                             x:Name="pieChartCountArtistInByArea"
                             Grid.Row="1"
                             Margin="0,10,0,0"
-                            Foreground="{StaticResource ForegroundColor}">
+                            Foreground="{DynamicResource ForegroundColor}">
                             <lc:PieChart.DataTooltip>
-                                <lc:DefaultTooltip Background="{StaticResource SubBackgroundColor}" />
+                                <lc:DefaultTooltip Background="{DynamicResource SubBackgroundColor}" />
                             </lc:PieChart.DataTooltip>
                         </lc:PieChart>
                     </Grid>
@@ -453,7 +453,7 @@
                     Padding="10"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
-                    Background="{StaticResource SubBackgroundColor}"
+                    Background="{DynamicResource SubBackgroundColor}"
                     CornerRadius="{StaticResource CornerRadius_V3}">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -464,15 +464,15 @@
                             Grid.Row="0"
                             FontSize="{StaticResource SmallTextSize}"
                             FontWeight="DemiBold"
-                            Foreground="{StaticResource ForegroundColor}"
+                            Foreground="{DynamicResource ForegroundColor}"
                             Text="Thông kế nhạc theo thị trường" />
                         <lc:PieChart
                             x:Name="pieChartCountSongInByArea"
                             Grid.Row="1"
                             Margin="0,10,0,0"
-                            Foreground="{StaticResource ForegroundColor}">
+                            Foreground="{DynamicResource ForegroundColor}">
                             <lc:PieChart.DataTooltip>
-                                <lc:DefaultTooltip Background="{StaticResource SubBackgroundColor}" />
+                                <lc:DefaultTooltip Background="{DynamicResource SubBackgroundColor}" />
                             </lc:PieChart.DataTooltip>
                         </lc:PieChart>
                     </Grid>
@@ -484,7 +484,7 @@
                     Padding="10"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
-                    Background="{StaticResource SubBackgroundColor}"
+                    Background="{DynamicResource SubBackgroundColor}"
                     CornerRadius="{StaticResource CornerRadius_V3}">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -501,7 +501,7 @@
                                 Grid.Row="0"
                                 FontSize="{StaticResource SmallTextSize}"
                                 FontWeight="DemiBold"
-                                Foreground="{StaticResource ForegroundColor}"
+                                Foreground="{DynamicResource ForegroundColor}"
                                 Text="Người dùng mới" />
 
                         </Grid>
@@ -516,8 +516,8 @@
 
                             <ListView.Resources>
                                 <Style BasedOn="{StaticResource CustomScrollBar}" TargetType="ScrollBar">
-                                    <Setter Property="Foreground" Value="{StaticResource ForegroundColor_60}" />
-                                    <Setter Property="BorderBrush" Value="{StaticResource IconColor}" />
+                                    <Setter Property="Foreground" Value="{DynamicResource ForegroundColor_60}" />
+                                    <Setter Property="BorderBrush" Value="{DynamicResource IconColor}" />
                                     <Setter Property="FontSize" Value="4" />
                                 </Style>
 
@@ -533,7 +533,7 @@
 
             </Grid>
 
-            <Grid Height="300" Margin="0,15,0,0">
+            <Grid Height="450" Margin="0,15,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="6*" />
                     <ColumnDefinition Width="15" />
@@ -547,7 +547,7 @@
                     Padding="10"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
-                    Background="{StaticResource SubBackgroundColor}"
+                    Background="{DynamicResource SubBackgroundColor}"
                     CornerRadius="{StaticResource CornerRadius_V3}">
 
                     <Grid>
@@ -567,7 +567,7 @@
                                 VerticalAlignment="Center"
                                 FontSize="{StaticResource SmallTextSize}"
                                 FontWeight="DemiBold"
-                                Foreground="{StaticResource ForegroundColor}"
+                                Foreground="{DynamicResource ForegroundColor}"
                                 Text="Người dùng mới trong" />
                             <ComboBox
                                 Grid.Column="1"
@@ -589,9 +589,9 @@
                             Grid.Row="1"
                             Margin="0,10,0,0"
                             FontSize="{StaticResource SmallTextSize}"
-                            Foreground="{StaticResource ForegroundColor}">
+                            Foreground="{DynamicResource ForegroundColor}">
                             <lc:CartesianChart.DataTooltip>
-                                <lc:DefaultTooltip Background="{StaticResource SubBackgroundColor}" />
+                                <lc:DefaultTooltip Background="{DynamicResource SubBackgroundColor}" />
                             </lc:CartesianChart.DataTooltip>
                             <lc:CartesianChart.AxisX>
                                 <lc:Axis>
@@ -605,7 +605,7 @@
                                 <lc:Axis MinValue="0" Visibility="Visible">
                                     <lc:Axis.Separator>
                                         <lc:Separator
-                                            Stroke="{StaticResource ForegroundColor_40}"
+                                            Stroke="{DynamicResource ForegroundColor_40}"
                                             StrokeDashArray="3 7"
                                             StrokeThickness="1" />
                                     </lc:Axis.Separator>
@@ -623,7 +623,7 @@
                     Padding="10"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
-                    Background="{StaticResource SubBackgroundColor}"
+                    Background="{DynamicResource SubBackgroundColor}"
                     CornerRadius="{StaticResource CornerRadius_V3}">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -640,7 +640,7 @@
                                 Grid.Row="0"
                                 FontSize="{StaticResource SmallTextSize}"
                                 FontWeight="DemiBold"
-                                Foreground="{StaticResource ForegroundColor}"
+                                Foreground="{DynamicResource ForegroundColor}"
                                 Text="Bài hát mới phát hành" />
 
                         </Grid>
@@ -654,8 +654,8 @@
 
                             <ListView.Resources>
                                 <Style BasedOn="{StaticResource CustomScrollBar}" TargetType="ScrollBar">
-                                    <Setter Property="Foreground" Value="{StaticResource ForegroundColor_60}" />
-                                    <Setter Property="BorderBrush" Value="{StaticResource IconColor}" />
+                                    <Setter Property="Foreground" Value="{DynamicResource ForegroundColor_60}" />
+                                    <Setter Property="BorderBrush" Value="{DynamicResource IconColor}" />
                                     <Setter Property="FontSize" Value="4" />
                                 </Style>
 

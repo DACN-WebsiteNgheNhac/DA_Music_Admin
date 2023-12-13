@@ -24,7 +24,7 @@
     <Page.Resources>
 
         <Style x:Key="TextBlockInDataGrid" TargetType="TextBlock">
-            <Setter Property="Foreground" Value="{StaticResource ForegroundColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
             <Setter Property="Focusable" Value="False" />
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
             <Setter Property="TextAlignment" Value="Justify" />
@@ -38,8 +38,8 @@
             BasedOn="{StaticResource MaterialDesignFlatMidBgButton}"
             TargetType="Button">
             <Setter Property="FontSize" Value="{StaticResource TextSize}" />
-            <Setter Property="Foreground" Value="{StaticResource ForegroundColor}" />
-            <Setter Property="Background" Value="{StaticResource IconColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+            <Setter Property="Background" Value="{DynamicResource IconColor}" />
             <Setter Property="FontWeight" Value="DemiBold" />
             <Setter Property="Focusable" Value="False" />
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
@@ -58,7 +58,7 @@
         </Style>
 
         <Style x:Key="border" TargetType="Border">
-            <Setter Property="Background" Value="{StaticResource BackgroundColor}" />
+            <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
             <Setter Property="Padding" Value="10" />
             <Setter Property="CornerRadius" Value="{StaticResource CornerRadius_V3}" />
             <Setter Property="UseLayoutRounding" Value="True" />
@@ -86,7 +86,7 @@
 
     </Page.Resources>
 
-    <Border Background="{StaticResource SubBackgroundColor}" Style="{StaticResource border}">
+    <Border Background="{DynamicResource SubBackgroundColor}" Style="{StaticResource border}">
 
         <!--#region First slide-->
         <Canvas AllowDrop="True">
@@ -127,7 +127,7 @@
                                 Padding="0,0,40,4"
                                 materialDesign:HintAssist.Hint="Nhập tên bài hát, tên nghệ sĩ trình bày, tag..."
                                 AllowDrop="True"
-                                BorderBrush="{StaticResource ForegroundColor}"
+                                BorderBrush="{DynamicResource ForegroundColor}"
                                 Style="{StaticResource CustomHintTextBox}"
                                 Text="{Binding Query, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
@@ -152,7 +152,7 @@
                                 <fa:ImageAwesome
                                     Width="12"
                                     Height="12"
-                                    Foreground="{StaticResource ForegroundColor}"
+                                    Foreground="{DynamicResource ForegroundColor}"
                                     Icon="Close" />
 
                             </Button>
@@ -177,7 +177,7 @@
                             <fa:ImageAwesome
                                 Width="22"
                                 Height="25"
-                                Foreground="{StaticResource ForegroundColor}"
+                                Foreground="{DynamicResource ForegroundColor}"
                                 Icon="Search" />
                         </Button>
 
@@ -228,7 +228,7 @@
                             <fa:ImageAwesome
                                 Width="20"
                                 Height="20"
-                                Foreground="{StaticResource ForegroundInIconColor}"
+                                Foreground="{DynamicResource ForegroundInIconColor}"
                                 Icon="PlusCircle" />
                         </Button>
                     </Grid>
@@ -244,14 +244,14 @@
                     x:FieldModifier="public"
                     AllowDrop="True"
                     AutoGenerateColumns="False"
-                    Background="{StaticResource SubBackgroundColor}"
+                    Background="{DynamicResource SubBackgroundColor}"
                     ColumnWidth="*"
                     FocusVisualStyle="{x:Null}"
                     Focusable="False"
                     FontSize="{StaticResource TextSize}"
                     FontWeight="Normal"
-                    Foreground="{StaticResource ForegroundColor}"
-                    HorizontalGridLinesBrush="{StaticResource ForegroundColor_20}"
+                    Foreground="{DynamicResource ForegroundColor}"
+                    HorizontalGridLinesBrush="{DynamicResource ForegroundColor_20}"
                     HorizontalScrollBarVisibility="Visible"
                     IsReadOnly="True"
                     ItemsSource="{Binding DataSong}"
@@ -275,7 +275,7 @@
 
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="{StaticResource ForegroundColor_20}" />
+                                    <Setter Property="Background" Value="{DynamicResource ForegroundColor_20}" />
                                 </Trigger>
                             </Style.Triggers>
 
@@ -295,8 +295,8 @@
                     <DataGrid.Resources>
 
                         <Style BasedOn="{StaticResource CustomScrollBar}" TargetType="ScrollBar">
-                            <Setter Property="Foreground" Value="{StaticResource ForegroundColor_60}" />
-                            <Setter Property="BorderBrush" Value="{StaticResource IconColor}" />
+                            <Setter Property="Foreground" Value="{DynamicResource ForegroundColor_60}" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource IconColor}" />
                             <Setter Property="FontSize" Value="4" />
                         </Style>
                     </DataGrid.Resources>
@@ -311,15 +311,15 @@
                             <DataGridCheckBoxColumn.HeaderTemplate>
                                 <DataTemplate>
                                     <CheckBox
-                                        Background="{StaticResource IconColor}"
+                                        Background="{DynamicResource IconColor}"
                                         FocusVisualStyle="{x:Null}"
                                         Focusable="False"
-                                        Foreground="{StaticResource ForegroundColor}"
+                                        Foreground="{DynamicResource ForegroundColor}"
                                         IsChecked="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.IsSelectedAllItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, IsAsync=True}"
                                         Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.ShowModifyControls, Mode=OneWay}">
 
                                         <CheckBox.Resources>
-                                            <SolidColorBrush x:Key="MaterialDesignCheckBoxOff" Color="{StaticResource ColorForegroundColor}" />
+                                            <SolidColorBrush x:Key="MaterialDesignCheckBoxOff" Color="{DynamicResource ColorForegroundColor}" />
                                         </CheckBox.Resources>
                                     </CheckBox>
                                 </DataTemplate>
@@ -328,7 +328,7 @@
                             <DataGridCheckBoxColumn.ElementStyle>
                                 <Style BasedOn="{StaticResource MaterialDesignCheckBox}" TargetType="CheckBox">
                                     <Style.Resources>
-                                        <SolidColorBrush x:Key="MaterialDesignCheckBoxOff" Color="{StaticResource ColorForegroundColor_40}" />
+                                        <SolidColorBrush x:Key="MaterialDesignCheckBoxOff" Color="{DynamicResource ColorForegroundColor_40}" />
                                     </Style.Resources>
                                     <Setter Property="Visibility" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.ShowModifyControls, Mode=OneWay}" />
                                     <Setter Property="Focusable" Value="False" />
@@ -340,8 +340,8 @@
                                     <Setter Property="HorizontalAlignment" Value="Center" />
                                     <Setter Property="VerticalAlignment" Value="Center" />
                                     <Setter Property="IsChecked" Value="{Binding IsSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, IsAsync=True}" />
-                                    <Setter Property="Background" Value="{StaticResource IconColor}" />
-                                    <Setter Property="Foreground" Value="{StaticResource IconColor}" />
+                                    <Setter Property="Background" Value="{DynamicResource IconColor}" />
+                                    <Setter Property="Foreground" Value="{DynamicResource IconColor}" />
                                     <Setter Property="at:DataGridRowExtensions.ButtonClickCommand" Value="{Binding DataContext.CheckBoxDatagridRowClicked, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, IsAsync=True}" />
                                 </Style>
                             </DataGridCheckBoxColumn.ElementStyle>
@@ -353,7 +353,7 @@
                             IsReadOnly="True">
                             <DataGridTemplateColumn.HeaderTemplate>
                                 <DataTemplate>
-                                    <TextBlock Foreground="{StaticResource ForegroundColor}" Text="Id" />
+                                    <TextBlock Foreground="{DynamicResource ForegroundColor}" Text="Id" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.HeaderTemplate>
                             <DataGridTemplateColumn.CellTemplate>
@@ -372,7 +372,7 @@
 
                             <DataGridTemplateColumn.HeaderTemplate>
                                 <DataTemplate>
-                                    <TextBlock Foreground="{StaticResource ForegroundColor}" Text="Ảnh bìa" />
+                                    <TextBlock Foreground="{DynamicResource ForegroundColor}" Text="Ảnh bìa" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.HeaderTemplate>
 
@@ -386,7 +386,7 @@
                                         FocusVisualStyle="{x:Null}"
                                         Focusable="False"
                                         ImageURL="{Binding Image, Mode=OneWay}"
-                                        LoadingColor="{StaticResource ForegroundColor_40}"
+                                        LoadingColor="{DynamicResource ForegroundColor_40}"
                                         RenderTransformOrigin="0.5,0.5">
 
                                         <!--<cc:RoundedImage.Background>
@@ -402,7 +402,7 @@
                         <DataGridTemplateColumn Header="Tựa đề" IsReadOnly="True">
                             <DataGridTemplateColumn.HeaderTemplate>
                                 <DataTemplate>
-                                    <TextBlock Foreground="{StaticResource ForegroundColor}" Text="Tựa đề" />
+                                    <TextBlock Foreground="{DynamicResource ForegroundColor}" Text="Tựa đề" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.HeaderTemplate>
                             <DataGridTemplateColumn.CellTemplate>
@@ -422,7 +422,7 @@
                         <DataGridTemplateColumn Header="Lượt nghe" IsReadOnly="True">
                             <DataGridTemplateColumn.HeaderTemplate>
                                 <DataTemplate>
-                                    <TextBlock Foreground="{StaticResource ForegroundColor}" Text="Lượt nghe" />
+                                    <TextBlock Foreground="{DynamicResource ForegroundColor}" Text="Lượt nghe" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.HeaderTemplate>
                             <DataGridTemplateColumn.CellTemplate>
@@ -444,7 +444,7 @@
                         <DataGridTemplateColumn Header="Lượt tải" IsReadOnly="True">
                             <DataGridTemplateColumn.HeaderTemplate>
                                 <DataTemplate>
-                                    <TextBlock Foreground="{StaticResource ForegroundColor}" Text="Lượt tải" />
+                                    <TextBlock Foreground="{DynamicResource ForegroundColor}" Text="Lượt tải" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.HeaderTemplate>
                             <DataGridTemplateColumn.CellTemplate>
@@ -465,7 +465,7 @@
                         <DataGridTemplateColumn Header="Ngày tạo" IsReadOnly="True">
                             <DataGridTemplateColumn.HeaderTemplate>
                                 <DataTemplate>
-                                    <TextBlock Foreground="{StaticResource ForegroundColor}" Text="Ngày tạo" />
+                                    <TextBlock Foreground="{DynamicResource ForegroundColor}" Text="Ngày tạo" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.HeaderTemplate>
                             <DataGridTemplateColumn.CellTemplate>
@@ -486,7 +486,7 @@
                         <DataGridTemplateColumn Header="Ngày cập nhật" IsReadOnly="True">
                             <DataGridTemplateColumn.HeaderTemplate>
                                 <DataTemplate>
-                                    <TextBlock Foreground="{StaticResource ForegroundColor}" Text="Ngày cập nhật" />
+                                    <TextBlock Foreground="{DynamicResource ForegroundColor}" Text="Ngày cập nhật" />
                                 </DataTemplate>
                             </DataGridTemplateColumn.HeaderTemplate>
                             <DataGridTemplateColumn.CellTemplate>
@@ -508,7 +508,7 @@
                             <DataGridTemplateColumn.HeaderTemplate>
                                 <DataTemplate>
                                     <TextBlock
-                                        Foreground="{StaticResource ForegroundColor}"
+                                        Foreground="{DynamicResource ForegroundColor}"
                                         Text="Chức năng"
                                         Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.ShowModifyControls, Mode=OneWay}" />
                                 </DataTemplate>
@@ -533,7 +533,7 @@
                                             Width="40"
                                             Padding="5"
                                             Background="OrangeRed"
-                                            Style="{StaticResource DeleteButtonInDatagrid}"
+                                            Style="{DynamicResource DeleteButtonInDatagrid}"
                                             Visibility="Collapsed">
 
                                             <fa:ImageAwesome
@@ -541,7 +541,7 @@
                                                 Height="20"
                                                 HorizontalAlignment="Center"
                                                 VerticalAlignment="Center"
-                                                Foreground="{StaticResource ForegroundInIconColor}"
+                                                Foreground="{DynamicResource ForegroundInIconColor}"
                                                 Icon="Trash" />
                                         </Button>
                                     </StackPanel>
@@ -565,15 +565,15 @@
                         <TextBlock
                             VerticalAlignment="Center"
                             FontSize="{StaticResource SmallTextSize}"
-                            Foreground="{StaticResource ForegroundColor}"
+                            Foreground="{DynamicResource ForegroundColor}"
                             Text="Số dòng dữ liệu"
                             TextAlignment="Center" />
                         <ComboBox
                             Width="120"
                             Margin="10,0,0,0"
-                            materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource IconColor}"
+                            materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource IconColor}"
                             FontSize="{StaticResource SmallTextSize}"
-                            Foreground="{StaticResource ForegroundColor}"
+                            Foreground="{DynamicResource ForegroundColor}"
                             ItemsSource="{Binding ItemsEntries, IsAsync=True}"
                             SelectedItem="{Binding SelectedEntry, Mode=TwoWay, IsAsync=True}" />
                     </StackPanel>
@@ -590,7 +590,7 @@
                                     </Interaction:EventTrigger>
                                 </Interaction:Interaction.Triggers>
 
-                                <fa:ImageAwesome Foreground="{StaticResource ForegroundColor}" Icon="AngleDoubleLeft" />
+                                <fa:ImageAwesome Foreground="{DynamicResource ForegroundColor}" Icon="AngleDoubleLeft" />
 
                             </Button>
 
@@ -601,7 +601,7 @@
                                     </Interaction:EventTrigger>
                                 </Interaction:Interaction.Triggers>
 
-                                <fa:ImageAwesome Foreground="{StaticResource ForegroundColor}" Icon="AngleLeft" />
+                                <fa:ImageAwesome Foreground="{DynamicResource ForegroundColor}" Icon="AngleLeft" />
 
                             </Button>
 
@@ -612,7 +612,7 @@
                                     </Interaction:EventTrigger>
                                 </Interaction:Interaction.Triggers>
 
-                                <fa:ImageAwesome Foreground="{StaticResource ForegroundColor}" Icon="AngleRight" />
+                                <fa:ImageAwesome Foreground="{DynamicResource ForegroundColor}" Icon="AngleRight" />
 
                             </Button>
 
@@ -623,7 +623,7 @@
                                     </Interaction:EventTrigger>
                                 </Interaction:Interaction.Triggers>
 
-                                <fa:ImageAwesome Foreground="{StaticResource ForegroundColor}" Icon="AngleDoubleRight" />
+                                <fa:ImageAwesome Foreground="{DynamicResource ForegroundColor}" Icon="AngleDoubleRight" />
 
                             </Button>
 
@@ -638,23 +638,23 @@
                                     </Interaction:EventTrigger>
                                 </Interaction:Interaction.Triggers>
 
-                                <fa:ImageAwesome Foreground="{StaticResource ForegroundColor}" Icon="ChevronCircleRight" />
+                                <fa:ImageAwesome Foreground="{DynamicResource ForegroundColor}" Icon="ChevronCircleRight" />
                             </Button>
                             <TextBlock
                                 VerticalAlignment="Center"
                                 FlowDirection="LeftToRight"
                                 FontSize="{StaticResource SmallTextSize}"
-                                Foreground="{StaticResource ForegroundColor}"
+                                Foreground="{DynamicResource ForegroundColor}"
                                 Text="{Binding TotalPage, StringFormat='/0'}"
                                 TextAlignment="Center" />
                             <TextBox
                                 Width="40"
-                                materialDesign:TextFieldAssist.UnderlineBrush="{StaticResource IconColor}"
-                                CaretBrush="{StaticResource ForegroundColor}"
+                                materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource IconColor}"
+                                CaretBrush="{DynamicResource ForegroundColor}"
                                 FlowDirection="LeftToRight"
                                 FontSize="{StaticResource SmallTextSize}"
-                                Foreground="{StaticResource ForegroundColor}"
-                                SelectionBrush="{StaticResource IconColor}"
+                                Foreground="{DynamicResource ForegroundColor}"
+                                SelectionBrush="{DynamicResource IconColor}"
                                 Text="{Binding CurrentPage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
                         </StackPanel>

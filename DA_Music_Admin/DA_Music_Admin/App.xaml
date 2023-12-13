@@ -13,6 +13,9 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Green.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
 
+                <ResourceDictionary Source="/Themes/Dark.xaml" />
+
+
                 <ResourceDictionary Source="/Sources/Styles/Color.xaml" />
                 <ResourceDictionary Source="/Sources/Styles/Size.xaml" />
                 <ResourceDictionary Source="/Sources/Styles/SubStyle.xaml" />

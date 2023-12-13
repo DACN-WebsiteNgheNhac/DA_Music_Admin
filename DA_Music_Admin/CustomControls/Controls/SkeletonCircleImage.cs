@@ -13,7 +13,14 @@ namespace CustomControls.Controls
 {
     public class SkeletonCircleImage : Border, INotifyPropertyChanged
     {
-        private Brush _LoadingColor = Brushes.Red;
+        public static readonly DependencyProperty LoadingColorProperty =
+        DependencyProperty.Register(
+            nameof(LoadingColor),
+            typeof(Brush),
+            typeof(SkeletonCircleImage),
+            new PropertyMetadata(Brushes.LightGray));
+
+        private Brush _LoadingColor = Brushes.LightGray;
         public Brush LoadingColor
         {
             get { return _LoadingColor; }
