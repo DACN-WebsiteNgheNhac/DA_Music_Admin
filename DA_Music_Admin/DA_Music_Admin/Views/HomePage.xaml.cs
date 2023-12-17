@@ -20,5 +20,10 @@ namespace DA_Music_Admin.Views
         {
 
         }
+
+        private void cartesianChart_DataClick(object sender, LiveCharts.ChartPoint chartPoint)
+        {
+
+        }
     }
 }

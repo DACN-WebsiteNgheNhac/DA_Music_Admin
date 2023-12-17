@@ -27,7 +27,7 @@ namespace DA_Music_Admin
         public DateTimeOffset? UpdatedAt { get; set; }
         public DateTimeOffset? DeletedAt { get; set; }
         public double Downloads { get; set; }
-
+        public string? Lyric { get; set; }
         public virtual ICollection<AlbumSong> AlbumSongs { get; set; }
         public virtual ICollection<ArtistSong> ArtistSongs { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }

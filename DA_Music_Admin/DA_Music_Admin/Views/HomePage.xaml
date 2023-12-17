@@ -342,7 +342,7 @@
                             Height="45"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
-                            Foreground="{DynamicResource ForegroundColor}"
+                            Foreground="{DynamicResource ForegroundInIconColor}"
                             Kind="MusicAccidentalNatural" />
 
                         <TextBlock
@@ -352,7 +352,7 @@
                             Background="{DynamicResource IconColor}"
                             FontSize="{StaticResource TextSize}"
                             FontWeight="DemiBold"
-                            Foreground="{DynamicResource ForegroundColor}"
+                            Foreground="{DynamicResource ForegroundInIconColor}"
                             Text="{Binding WelcomeText}" />
 
                         <TextBlock
@@ -363,7 +363,7 @@
                             Background="{DynamicResource IconColor}"
                             FontSize="{StaticResource TextSize}"
                             FontWeight="DemiBold"
-                            Foreground="{DynamicResource ForegroundColor}"
+                            Foreground="{DynamicResource ForegroundInIconColor}"
                             Text="Soundtrack to Your Soul: Elevate Every Moment with Our Melodic Universe!" />
                     </Grid>
                 </Border>
@@ -590,11 +590,20 @@
                             Margin="0,10,0,0"
                             FontSize="{StaticResource SmallTextSize}"
                             Foreground="{DynamicResource ForegroundColor}">
+
+                            <lc:CartesianChart.Series>
+                                <lc:LineSeries
+                                    Title="{Binding TitleXColumnLineChart, Mode=OneWay}"
+                                    Fill="{DynamicResource ForegroundColor_40}"
+                                    Stroke="{DynamicResource ForegroundColor}"
+                                    Values="{Binding DataColumnLine, Mode=OneWay}" />
+                            </lc:CartesianChart.Series>
+
                             <lc:CartesianChart.DataTooltip>
                                 <lc:DefaultTooltip Background="{DynamicResource SubBackgroundColor}" />
                             </lc:CartesianChart.DataTooltip>
                             <lc:CartesianChart.AxisX>
-                                <lc:Axis>
+                                <lc:Axis Title="{Binding TitleXLine, Mode=OneWay}" Labels="{Binding LabelsLine, Mode=OneWay}">
                                     <lc:Axis.Separator>
                                         <lc:Separator Stroke="Transparent" />
                                     </lc:Axis.Separator>
@@ -602,7 +611,11 @@
                             </lc:CartesianChart.AxisX>
 
                             <lc:CartesianChart.AxisY>
-                                <lc:Axis MinValue="0" Visibility="Visible">
+                                <lc:Axis
+                                    Title="{Binding TitleYLine, Mode=OneWay}"
+                                    LabelFormatter="{Binding LabelFormatter, Mode=OneWay}"
+                                    MinValue="0"
+                                    Visibility="Visible">
                                     <lc:Axis.Separator>
                                         <lc:Separator
                                             Stroke="{DynamicResource ForegroundColor_40}"

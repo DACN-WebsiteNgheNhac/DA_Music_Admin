@@ -129,7 +129,8 @@
                     FontWeight="DemiBold"
                     Foreground="{Binding ForegroundColor, Mode=OneWay}"
                     Text="{Binding Message, Mode=OneWay}"
-                    TextTrimming="WordEllipsis" />
+                    TextTrimming="WordEllipsis"
+                    ToolTip="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text, Mode=OneWay}" />
 
             </Grid>
 

@@ -467,12 +467,12 @@ namespace DA_Music_Admin.ViewModels
             var result = await _userService.CreateObject(Data);
             if (result != null)
             {
-                ViewHolder.Ins.ShowSuccessNotify("Nghệ sỹ " + Data.Name + " đã được thêm");
+                ViewHolder.Ins.ShowSuccessNotify("Tài khoản " + Data.Name + " đã được thêm");
                 Data = result;
             }
             else
             {
-                ViewHolder.Ins.ShowFailNotify("Xảy ra lỗi khi thêm nghệ sỹ " + Data.Name);
+                ViewHolder.Ins.ShowFailNotify("Xảy ra lỗi khi thêm Tài khoản " + Data.Name);
             }
             if (result == null)
                 return false;
@@ -499,11 +499,11 @@ namespace DA_Music_Admin.ViewModels
             var result = await _userService.EditUser(Data, Data.Image != PrimaryImageFile);
             if (result != null)
             {
-                ViewHolder.Ins.ShowSuccessNotify("Bài hát " + Data.Name + " đã được cập nhật");
+                ViewHolder.Ins.ShowSuccessNotify("Tài khoản " + Data.Name + " đã được cập nhật");
                 Data.Image = PrimaryImageFile = result.Image;
             }
             else
-                ViewHolder.Ins.ShowFailNotify("Xảy ra lỗi khi cập nhật Bài hát " + Data.Name);
+                ViewHolder.Ins.ShowFailNotify("Xảy ra lỗi khi cập nhật Tài khoản " + Data.Name);
             if (result == null)
                 return false;
             return true;
@@ -536,6 +536,8 @@ namespace DA_Music_Admin.ViewModels
                 return "Không thể bỏ trống quyền!"; 
             if (string.IsNullOrEmpty(Data.Password))
                 return "Không thể bỏ trống mật khẩu!";
+            if (Data.BirthDay >= DateTime.Now)
+                return "Ngày sinh không thể lớn hơn ngày hiện tại!";
             return "";
         }
 

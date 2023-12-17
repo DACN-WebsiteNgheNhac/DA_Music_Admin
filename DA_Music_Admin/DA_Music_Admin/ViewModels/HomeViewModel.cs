@@ -270,6 +270,7 @@ namespace DA_Music_Admin.ViewModels
             {
 
                 var result = _userService.SearchUsers("", "", "1", fromDate, toDate, 1, 10).Result;
+                result = result.OrderBy(t => t.CreatedAt).ToList();
                 var groupBy = result.GroupBy(t => new DateTime(t.CreatedAt.Value.Year, t.CreatedAt.Value.Month, t.CreatedAt.Value.Day)).ToList();
 
                 foreach (var item in groupBy)
@@ -295,10 +296,12 @@ namespace DA_Music_Admin.ViewModels
         {
             var dataSrc = new List<InformationCardModel>();
 
+            var totalSongs = await _songService.SearchSongs("", "", "");
+
             dataSrc.Add(new InformationCardModel
             {
                 Icon = PackIconKind.Music,
-                Title = (await _songService.GetTotalPages("", "", "", pageSize: 1)).ToString(),
+                Title = totalSongs.Count.ToString(),
                 SubTitle = "Tổng bài hát",
                 BackgroundColor = ColorConst.subBackgroundColor,
                 IconColor = Color.FromArgb(255, 253, 96, 176),
@@ -328,7 +331,7 @@ namespace DA_Music_Admin.ViewModels
             dataSrc.Add(new InformationCardModel
             {
                 Icon = PackIconKind.MusicBox,
-                Title = (await _songService.GetTotalListens()).ToString(),
+                Title = totalSongs.Sum(t => t.Listens).ToString(),
                 SubTitle = "Tổng lượt nghe",
                 BackgroundColor = ColorConst.subBackgroundColor,
                 IconColor = Color.FromArgb(255, 125, 216, 216),
@@ -338,7 +341,7 @@ namespace DA_Music_Admin.ViewModels
             dataSrc.Add(new InformationCardModel
             {
                 Icon = PackIconKind.Downloads,
-                Title = (await _songService.GetTotalDownloads()).ToString(),
+                Title = totalSongs.Sum(t => t.Downloads).ToString(),
                 SubTitle = "Tổng lượt tải",
                 BackgroundColor = ColorConst.subBackgroundColor,
                 IconColor = Color.FromArgb(255, 252, 49, 110),
@@ -395,46 +398,127 @@ namespace DA_Music_Admin.ViewModels
             target.Series = series;
         }
 
+
+        private SeriesCollection _LineSeries;
+        public SeriesCollection LineSeries
+        {
+            get { return _LineSeries; }
+            set { _LineSeries = value; _ = loadData(nameof(LineSeries)); }
+        }
+
+        private string _TitleXColumnLineChart;
+        public string TitleXColumnLineChart
+        {
+            get { return _TitleXColumnLineChart; }
+            set { _TitleXColumnLineChart = value; OnPropertyChanged(nameof(TitleXColumnLineChart)); }
+        }
+
+        private ChartValues<double> _DataColumnLine;
+        public ChartValues<double> DataColumnLine
+        {
+            get { return _DataColumnLine; }
+            set { _DataColumnLine = value;  OnPropertyChanged(nameof(DataColumnLine)); }
+        }
+
+        private string _TitleXLine;
+        public string TitleXLine
+        {
+            get { return _TitleXLine; }
+            set { _TitleXLine = value; OnPropertyChanged(nameof(TitleXLine)); }
+        }
+
+        private string[] _LabelsLine;
+
+        public string[] LabelsLine
+        {
+            get { return _LabelsLine; }
+            set { _LabelsLine = value; OnPropertyChanged(nameof(LabelsLine)); }
+        }
+
+        private string _TitleYLine;
+        public string TitleYLine
+        {
+            get { return _TitleYLine; }
+            set { _TitleYLine = value; OnPropertyChanged(nameof(TitleYLine)); }
+        }
+
+        private Func<double, string> _LabelFomatterY;
+
+        public Func<double, string> LabelFormatter
+        {
+            get { return _LabelFomatterY; }
+            set { _LabelFomatterY = value; OnPropertyChanged(nameof(LabelFormatter)); }
+        }
+
+
+
         void LoadDataToLineColumnChart<T>(CartesianChart target, string titleX, string[] valuesX, string titleY
             , string titleColumn, T[] dataColumn)
         {
-            target.Series.Clear();
-            target.AxisX.Clear();
-            target.AxisY.Clear();
-            target.Series = new SeriesCollection
-            {
-                new LineSeries
-                {
-                    Title = titleColumn,
-                    Values = new ChartValues<T>(dataColumn),
-                    Fill = new SolidColorBrush(ColorConst.foregroundColor_40),
-                    Stroke = new SolidColorBrush(ColorConst.foregroundColor)
-                }
-            };
 
-            target.AxisX.Add(new Axis
-            {
-                Title = titleX,
-                Labels = valuesX,
-                Foreground = new SolidColorBrush(ColorConst.foregroundColor),
-                Separator = new LiveCharts.Wpf.Separator{ Stroke = Brushes.Transparent}
-            });
+            DataColumnLine = new ChartValues<double>(dataColumn as double[]);
+            TitleXColumnLineChart = titleColumn;
 
-            target.AxisY.Add(new Axis
-            {
-                Title = titleY,
-                Foreground = new SolidColorBrush(ColorConst.foregroundColor),
-                LabelFormatter = value => value.ToString("#,##0 tài khoản"),
-                Separator = new LiveCharts.Wpf.Separator 
-                { 
-                    Stroke = new SolidColorBrush(ColorConst.foregroundColor_40),
-                    StrokeDashArray = new DoubleCollection(new double[] {3,7}),
-                    StrokeThickness = 1
-                }
+            TitleXLine = titleX;
+            LabelsLine = valuesX;
 
-            });
+            TitleYLine = titleY;
+
+            LabelFormatter = value => value.ToString("#,##0 tài khoản");
+
+            //LineSeries = new SeriesCollection
+            //{
+            //    new LineSeries
+            //    {
+            //        Title = titleColumn,
+            //        Values = new ChartValues<T>(dataColumn),
+            //        Fill = new SolidColorBrush(ColorConst.foregroundColor_40),
+            //        Stroke = new SolidColorBrush(ColorConst.foregroundColor)
+            //    }
+            //};
+
+
+            //target.Series.Clear();
+            //target.AxisX.Clear();
+            //target.AxisY.Clear();
+            //target.Series = new SeriesCollection
+            //{
+            //    new LineSeries
+            //    {
+            //        Title = titleColumn,
+            //        Values = new ChartValues<T>(dataColumn),
+            //        Fill = new SolidColorBrush(ColorConst.foregroundColor_40),
+            //        Stroke = new SolidColorBrush(ColorConst.foregroundColor)
+            //    }
+            //};
+
+            //target.AxisX.Add(new Axis
+            //{
+            //    Title = titleX,
+            //    Labels = valuesX,
+            //    Foreground = new SolidColorBrush(ColorConst.foregroundColor),
+            //    Separator = new LiveCharts.Wpf.Separator{ Stroke = Brushes.Transparent}
+            //});
+
+            //target.AxisY.Add(new Axis
+            //{
+            //    Title = titleY,
+            //    Foreground = new SolidColorBrush(ColorConst.foregroundColor),
+            //    LabelFormatter = value => value.ToString("#,##0 tài khoản"),
+            //    Separator = new LiveCharts.Wpf.Separator
+            //    {
+            //        Stroke = new SolidColorBrush(ColorConst.foregroundColor_40),
+            //        StrokeDashArray = new DoubleCollection(new double[] { 3, 7 }),
+            //        StrokeThickness = 1
+            //    }
+
+            //});
 
         }
+
+
+
+
 
     }
 }

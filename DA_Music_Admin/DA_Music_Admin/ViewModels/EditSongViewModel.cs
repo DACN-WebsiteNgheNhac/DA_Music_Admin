@@ -17,6 +17,8 @@ using Services.IServices;
 using System.Threading.Tasks;
 using TaskStatus = CustomControls.Controls.TaskStatus;
 using System.Xml.Linq;
+using System.Windows.Documents;
+using CustomControls.Controls;
 
 namespace DA_Music_Admin.ViewModels
 {
@@ -62,6 +64,12 @@ namespace DA_Music_Admin.ViewModels
         public ICommand ContainerImage_SizeChanged { get; set; }
 
         public ICommand NextSlide { get; set; }
+
+
+        public ICommand RichTextBoxTextChanged { get; set; }
+        public ICommand RichTextBoxLoaded { get; set; }
+
+
 
         #endregion End Commands
 
@@ -300,9 +308,10 @@ namespace DA_Music_Admin.ViewModels
                     SelectedAudioFile = audio;
                 }
 
-              
+
             }
         }
+
 
         public string PrimaryImageFile = string.Empty;
         public string PrimaryAudioFile = string.Empty;
@@ -530,6 +539,29 @@ namespace DA_Music_Admin.ViewModels
             (t) =>
             {
                 LoadSecondSlide();
+            });
+
+
+            RichTextBoxLoaded = new RelayCommand<RichTextBox>(
+            (t) =>
+            {
+                return t != null ? true : false;
+            },
+            (t) =>
+            {
+                var document = RichTextBoxHelper.StringToDocument(Data.Lyric);
+                t.Document = document;
+            });
+
+            RichTextBoxTextChanged = new RelayCommand<RichTextBox>(
+            (t) =>
+            {
+                return t != null ? true : false;
+            },
+            (t) =>
+            {
+                string text = RichTextBoxHelper.DocumentToString(t.Document);
+                Data.Lyric = text;
             });
 
         }

@@ -42,7 +42,7 @@ namespace DA_Music_Admin
             var startUp = AppHost.Services.GetRequiredService<LoginPage>();
             startUp.Show();
 
-            //this.DispatcherUnhandledException += App_DispatcherUnhandledException;
+            this.DispatcherUnhandledException += App_DispatcherUnhandledException;
 
             base.OnStartup(e);
         }

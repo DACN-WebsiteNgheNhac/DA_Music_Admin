@@ -53,8 +53,8 @@ namespace DA_Music_Admin.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ThemeController.ChangeTheme(new System.Uri("Themes/Light.xaml", System.UriKind.Relative));
-            ColorConst.Register(this);
+            //ThemeController.ChangeTheme(new System.Uri("Themes/Light.xaml", System.UriKind.Relative));
+            //ColorConst.Register(this);
         }
     }
 }

@@ -209,7 +209,7 @@ namespace DA_Music_Admin.ViewModels
             },
             async (t) =>
             {
-                SwitchVisibilityComment(t);
+                await SwitchVisibilityComment(t);
             });
 
             #region Search

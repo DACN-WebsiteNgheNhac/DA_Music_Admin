@@ -51,15 +51,17 @@ namespace Services
              || t.ArtistSongs.Any(t => t.Artist.Name.Contains(query) || string.IsNullOrEmpty(t.Artist.Description) ? true : t.Artist.Description.Contains(query)))
              && (t.DeletedAt == null
              && string.IsNullOrEmpty(t.Area) ? true : t.Area.Contains(area)
-             && t.ArtistSongs.Count == 0 ? true : t.ArtistSongs.Any(t => t.ArtistId.Contains(artistId)));
+             );
 
             if (pageNumber < 0 || pageSize < 0)
                 return await _context.Set<Song>().AsNoTracking()
                     .Where(predicate)
+                    .Where(t => string.IsNullOrEmpty(artistId) ? true : t.ArtistSongs.Any(t => t.ArtistId.Contains(artistId)))
                     .OrderByDescending(t => t.Id)
                     .ToListAsync();
             return await _context.Set<Song>().AsNoTracking()
                     .Where(predicate)
+                    .Where(t => string.IsNullOrEmpty(artistId) ? true : t.ArtistSongs.Any(t => t.ArtistId.Contains(artistId)))
                     .OrderByDescending(t => t.Id)
                     .Skip((pageNumber - 1) * pageSize).Take(pageSize)
                     .ToListAsync();
@@ -214,14 +216,14 @@ namespace Services
         public async Task<double> GetTotalDownloads()
         {
             return await _context.Set<Song>().AsNoTracking()
-                .Where(t => t.DeletedAt != null)
+                .Where(t => t.DeletedAt == null)
                 .SumAsync(t => t.Downloads);
         }
 
         public async Task<double> GetTotalListens()
         {
             return await _context.Set<Song>().AsNoTracking()
-              .Where(t => t.DeletedAt != null)
+              .Where(t => t.DeletedAt == null)
               .SumAsync(t => t.Listens);
         }
 

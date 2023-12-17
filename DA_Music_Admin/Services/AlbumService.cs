@@ -53,7 +53,7 @@ namespace Services
         {
             if (data == null)
                 return null;
-
+            data.Topic = null;
             string image = data.Image;
 
             if (newImageFile && !string.IsNullOrEmpty(data.Image))

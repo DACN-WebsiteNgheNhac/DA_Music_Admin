@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Interaction="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:behavior="clr-namespace:CustomControls.Behaviors;assembly=CustomControls"
+    xmlns:cc="clr-namespace:CustomControls.Controls;assembly=CustomControls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:fa="http://schemas.fontawesome.io/icons/"
     xmlns:local="clr-namespace:DA_Music_Admin.Views"
@@ -306,145 +307,170 @@
                     Background="{DynamicResource SubBackgroundColor}"
                     CornerRadius="{StaticResource CornerRadius_V3}">
 
-                    <Grid x:Name="ContainerInputs" Margin="20,0,20,0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
+                    <ScrollViewer Margin="20,0,20,0">
+                        <ScrollViewer.Resources>
+                            <Style BasedOn="{StaticResource CustomScrollBar}" TargetType="ScrollBar">
+                                <Setter Property="Foreground" Value="{DynamicResource ForegroundColor_60}" />
+                                <Setter Property="BorderBrush" Value="{DynamicResource IconColor}" />
+                                <Setter Property="FontSize" Value="4" />
+                            </Style>
+                        </ScrollViewer.Resources>
+                        <StackPanel x:Name="ContainerInputs" Orientation="Vertical">
 
-                        <TextBlock
-                            Grid.Row="0"
-                            Margin="0,5,0,0"
-                            FontSize="20"
-                            FontWeight="DemiBold"
-                            Style="{StaticResource tblStyle}"
-                            Text="Thông tin bài hát" />
+                            <TextBlock
+                                Grid.Row="0"
+                                Margin="0,5,0,0"
+                                FontSize="20"
+                                FontWeight="DemiBold"
+                                Style="{StaticResource tblStyle}"
+                                Text="Thông tin bài hát" />
 
-                        <TextBox
-                            Grid.Row="1"
-                            Margin="0,0,0,15"
-                            materialDesign:HintAssist.Hint="Tựa đề bài hát"
-                            materialDesign:ValidationAssist.Background="Transparent"
-                            materialDesign:ValidationAssist.FontSize="{StaticResource TextSizeError}"
-                            materialDesign:ValidationAssist.UsePopup="False"
-                            Style="{StaticResource CurrentCustomHintTextBox}">
-                            <TextBox.Text>
-                                <Binding
-                                    Mode="TwoWay"
-                                    Path="Data.Name"
-                                    UpdateSourceTrigger="PropertyChanged">
-                                    <Binding.ValidationRules>
-                                        <local:IsRequiredField ErrorMessage="Không thể bỏ trống tên bài hát" />
-                                    </Binding.ValidationRules>
-                                </Binding>
-                            </TextBox.Text>
-                        </TextBox>
+                            <TextBox
+                                Grid.Row="1"
+                                Margin="0,0,0,15"
+                                materialDesign:HintAssist.Hint="Tựa đề bài hát"
+                                materialDesign:ValidationAssist.Background="Transparent"
+                                materialDesign:ValidationAssist.FontSize="{StaticResource TextSizeError}"
+                                materialDesign:ValidationAssist.UsePopup="False"
+                                Style="{StaticResource CurrentCustomHintTextBox}">
+                                <TextBox.Text>
+                                    <Binding
+                                        Mode="TwoWay"
+                                        Path="Data.Name"
+                                        UpdateSourceTrigger="PropertyChanged">
+                                        <Binding.ValidationRules>
+                                            <local:IsRequiredField ErrorMessage="Không thể bỏ trống tên bài hát" />
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
 
-                        <TextBox
-                            Grid.Row="2"
-                            Margin="0,0,0,15"
-                            materialDesign:HintAssist.Hint="Mô tả"
-                            Style="{StaticResource CurrentCustomHintTextBox}"
-                            Text="{Binding Data.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            <TextBox
+                                Grid.Row="2"
+                                Margin="0,0,0,15"
+                                materialDesign:HintAssist.Hint="Mô tả"
+                                Style="{StaticResource CurrentCustomHintTextBox}"
+                                Text="{Binding Data.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                        <TextBox
-                            Grid.Row="3"
-                            Margin="0,0,0,15"
-                            materialDesign:HintAssist.Hint="Tag"
-                            Style="{StaticResource CurrentCustomHintTextBox}"
-                            Text="{Binding Data.Tag, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            <TextBox
+                                Grid.Row="3"
+                                Margin="0,0,0,15"
+                                materialDesign:HintAssist.Hint="Tag"
+                                Style="{StaticResource CurrentCustomHintTextBox}"
+                                Text="{Binding Data.Tag, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
 
+                            <ComboBox
+                                Grid.Row="4"
+                                MaxHeight="45"
+                                Margin="0,0,0,15"
+                                HorizontalAlignment="Stretch"
+                                materialDesign:HintAssist.Hint="Khu vực"
+                                ItemsSource="{Binding DataAreas, IsAsync=True}"
+                                SelectedItem="{Binding Data.Area, IsAsync=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                Style="{StaticResource HintCombobox}" />
 
-                        <ComboBox
-                            Grid.Row="4"
-                            MaxHeight="45"
-                            Margin="0,0,0,15"
-                            HorizontalAlignment="Stretch"
-                            materialDesign:HintAssist.Hint="Khu vực"
-                            ItemsSource="{Binding DataAreas, IsAsync=True}"
-                            SelectedItem="{Binding Data.Area, IsAsync=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                            Style="{StaticResource HintCombobox}" />
-
-                        <TextBox
-                            Grid.Row="5"
-                            Margin="0,0,0,15"
-                            materialDesign:HintAssist.Hint="Lượt nghe"
-                            IsEnabled="False"
-                            Style="{StaticResource CurrentCustomHintTextBox}"
-                            Text="{Binding Data.Listens, UpdateSourceTrigger=PropertyChanged}" />
-
-
-                        <TextBox
-                            Grid.Row="6"
-                            Margin="0,0,0,15"
-                            materialDesign:HintAssist.Hint="Lượt tải"
-                            IsEnabled="False"
-                            Style="{StaticResource CurrentCustomHintTextBox}"
-                            Text="{Binding Data.Downloads, UpdateSourceTrigger=PropertyChanged}" />
-
-                        <TextBox
-                            Grid.Row="7"
-                            Margin="0,0,0,15"
-                            materialDesign:HintAssist.Hint="Ngày tạo"
-                            IsEnabled="False"
-                            Style="{StaticResource CurrentCustomHintTextBox}"
-                            Text="{Binding Data.CreatedAt, UpdateSourceTrigger=PropertyChanged, StringFormat='{StaticResource FormatDate}'}" />
+                            <TextBox
+                                Grid.Row="5"
+                                Margin="0,0,0,15"
+                                materialDesign:HintAssist.Hint="Lượt nghe"
+                                IsEnabled="False"
+                                Style="{StaticResource CurrentCustomHintTextBox}"
+                                Text="{Binding Data.Listens, UpdateSourceTrigger=PropertyChanged}" />
 
 
-                        <TextBox
-                            Grid.Row="8"
-                            Margin="0,0,0,15"
-                            materialDesign:HintAssist.Hint="Ngày cập nhật"
-                            IsEnabled="False"
-                            Style="{StaticResource CurrentCustomHintTextBox}"
-                            Text="{Binding Data.UpdatedAt, UpdateSourceTrigger=PropertyChanged, StringFormat='{StaticResource FormatDate}'}" />
+                            <TextBox
+                                Grid.Row="6"
+                                Margin="0,0,0,15"
+                                materialDesign:HintAssist.Hint="Lượt tải"
+                                IsEnabled="False"
+                                Style="{StaticResource CurrentCustomHintTextBox}"
+                                Text="{Binding Data.Downloads, UpdateSourceTrigger=PropertyChanged}" />
 
-                        <StackPanel
-                            Grid.Row="9"
-                            VerticalAlignment="Bottom"
-                            FlowDirection="RightToLeft"
-                            Orientation="Horizontal">
+                            <TextBox
+                                Grid.Row="7"
+                                Margin="0,0,0,15"
+                                materialDesign:HintAssist.Hint="Ngày tạo"
+                                IsEnabled="False"
+                                Style="{StaticResource CurrentCustomHintTextBox}"
+                                Text="{Binding Data.CreatedAt, UpdateSourceTrigger=PropertyChanged, StringFormat='{StaticResource FormatDate}'}" />
 
-                            <Button
-                                x:Name="btnNextSlide"
-                                HorizontalAlignment="Right"
-                                Command="{x:Static materialDesign:Transitioner.MoveNextCommand}"
-                                Content="Tiếp tục"
-                                Style="{StaticResource btnChooseFile}">
-                                <Interaction:Interaction.Triggers>
-                                    <Interaction:EventTrigger EventName="Click">
-                                        <Interaction:InvokeCommandAction Command="{Binding NextSlide}" CommandParameter="{Binding ElementName=btnNextSlide}" />
-                                    </Interaction:EventTrigger>
-                                </Interaction:Interaction.Triggers>
-                            </Button>
+                            <TextBox
+                                Grid.Row="8"
+                                Margin="0,0,0,15"
+                                materialDesign:HintAssist.Hint="Ngày cập nhật"
+                                IsEnabled="False"
+                                Style="{StaticResource CurrentCustomHintTextBox}"
+                                Text="{Binding Data.UpdatedAt, UpdateSourceTrigger=PropertyChanged, StringFormat='{StaticResource FormatDate}'}" />
 
-                            <Button
-                                x:Name="btnExcuteAction"
-                                Margin="15,0,0,0"
-                                HorizontalAlignment="Right"
-                                Content="{Binding ContentButtonAction, Mode=OneWay}"
-                                Style="{StaticResource btnChooseFile}">
-                                <Interaction:Interaction.Triggers>
-                                    <Interaction:EventTrigger EventName="Click">
-                                        <Interaction:InvokeCommandAction Command="{Binding ExcuteAction}" CommandParameter="{Binding ElementName=btnExcuteAction}" />
-                                    </Interaction:EventTrigger>
-                                </Interaction:Interaction.Triggers>
-                            </Button>
+
+                            <ScrollViewer MaxHeight="250" VerticalScrollBarVisibility="Auto">
+                                <RichTextBox
+                                    x:Name="rtxtLyric"
+                                    Margin="0,0,0,15"
+                                    materialDesign:HintAssist.Hint="Lời bài hát"
+                                    Style="{StaticResource CustomHintRichTextBox}">
+
+                                    <Interaction:Interaction.Triggers>
+                                        <Interaction:EventTrigger EventName="Loaded">
+                                            <Interaction:InvokeCommandAction Command="{Binding RichTextBoxLoaded}" CommandParameter="{Binding ElementName=rtxtLyric}" />
+                                        </Interaction:EventTrigger>
+                                        <Interaction:EventTrigger EventName="TextChanged">
+                                            <Interaction:InvokeCommandAction Command="{Binding RichTextBoxTextChanged}" CommandParameter="{Binding ElementName=rtxtLyric}" />
+                                        </Interaction:EventTrigger>
+                                    </Interaction:Interaction.Triggers>
+
+                                    <RichTextBox.Resources>
+                                        <Style BasedOn="{StaticResource CustomScrollBar}" TargetType="ScrollBar">
+                                            <Setter Property="Foreground" Value="{DynamicResource ForegroundColor_60}" />
+                                            <Setter Property="BorderBrush" Value="{DynamicResource IconColor}" />
+                                            <Setter Property="FontSize" Value="4" />
+                                        </Style>
+                                    </RichTextBox.Resources>
+
+                                </RichTextBox>
+                            </ScrollViewer>
+
+                            <StackPanel
+                                Grid.Row="9"
+                                VerticalAlignment="Bottom"
+                                FlowDirection="RightToLeft"
+                                Orientation="Horizontal">
+
+                                <Button
+                                    x:Name="btnNextSlide"
+                                    HorizontalAlignment="Right"
+                                    Command="{x:Static materialDesign:Transitioner.MoveNextCommand}"
+                                    Content="Tiếp tục"
+                                    Style="{StaticResource btnChooseFile}">
+                                    <Interaction:Interaction.Triggers>
+                                        <Interaction:EventTrigger EventName="Click">
+                                            <Interaction:InvokeCommandAction Command="{Binding NextSlide}" CommandParameter="{Binding ElementName=btnNextSlide}" />
+                                        </Interaction:EventTrigger>
+                                    </Interaction:Interaction.Triggers>
+                                </Button>
+
+                                <Button
+                                    x:Name="btnExcuteAction"
+                                    Margin="15,0,0,0"
+                                    HorizontalAlignment="Right"
+                                    Content="{Binding ContentButtonAction, Mode=OneWay}"
+                                    Style="{StaticResource btnChooseFile}">
+                                    <Interaction:Interaction.Triggers>
+                                        <Interaction:EventTrigger EventName="Click">
+                                            <Interaction:InvokeCommandAction Command="{Binding ExcuteAction}" CommandParameter="{Binding ElementName=btnExcuteAction}" />
+                                        </Interaction:EventTrigger>
+                                    </Interaction:Interaction.Triggers>
+                                </Button>
+
+                            </StackPanel>
+
+
 
                         </StackPanel>
+                    </ScrollViewer>
 
 
-
-                    </Grid>
 
                 </Border>
 

@@ -542,7 +542,11 @@ namespace DA_Music_Admin.ViewModels
             if (Data.DebutDate == null)
                 return "Không thể bỏ trống ngày debut!";
             if (string.IsNullOrEmpty(Data.National))
-                return "Không thể bỏ trống quốc tíchj!";
+                return "Không thể bỏ trống quốc tịch!";
+            if (Data.BirthDay >= DateTime.Now)
+                return "Ngày sinh không thể lớn hơn ngày hiện tại!";
+            if (Data.BirthDay >= Data.DebutDate)
+                return "Ngày debut không thể lớn hơn ngày sinh!";
             return "";
         }
 
