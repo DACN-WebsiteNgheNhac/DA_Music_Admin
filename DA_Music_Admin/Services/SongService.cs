@@ -48,7 +48,7 @@ namespace Services
             Expression<Func<Song, bool>> predicate =
              t => (t.Name.Contains(query)
              || string.IsNullOrEmpty(t.Description) ? true : t.Description.Contains(query)
-             || t.ArtistSongs.Any(t => t.Artist.Name.Contains(query) || string.IsNullOrEmpty(t.Artist.Description) ? true : t.Artist.Description.Contains(query)))
+             /*|| t.ArtistSongs.Any(t => t.Artist.Name.Contains(query) || string.IsNullOrEmpty(t.Artist.Description) ? true : t.Artist.Description.Contains(query))*/)
              && (t.DeletedAt == null
              && string.IsNullOrEmpty(t.Area) ? true : t.Area.Contains(area)
              );
@@ -87,6 +87,7 @@ namespace Services
                 audio = await UploadAudio(data.SongUrl, publicId);
             }
 
+            data.Tag = string.IsNullOrEmpty(data.Tag) ? null : data.Tag;
             data.Image = image;
             data.SongUrl = audio;
             data.UpdatedAt = DateTimeOffset.Now;

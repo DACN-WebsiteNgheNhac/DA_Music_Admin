@@ -76,7 +76,7 @@ namespace UploadService.Cloudinary.Services
                     Folder = audioCloudinary.DestinationFolder,
                     PublicId = audioCloudinary.PublicId
                 };
-                uploadResult = await _cloudinary.UploadLargeAsync(uploadParams);
+                uploadResult = await _cloudinary.UploadAsync(uploadParams);
             }
             return uploadResult;
         }

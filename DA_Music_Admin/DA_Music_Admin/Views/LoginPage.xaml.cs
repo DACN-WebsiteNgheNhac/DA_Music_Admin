@@ -2,6 +2,7 @@
 using Services;
 using Services.IServices;
 using StartUpHelperWPF;
+using System.ComponentModel;
 using System.Windows;
 
 namespace DA_Music_Admin.Views
@@ -42,22 +43,39 @@ namespace DA_Music_Admin.Views
             LoadingIndicator.Visibility = Visibility.Visible;
             var username = txtUsername.Text;
             var password = txtPass.Password;
-            var account = await _userService.Login(username, password);
-            if(account == null)
+
+            BackgroundWorker background = new BackgroundWorker();
+
+            var account = default(User);
+
+            background.DoWork += (sender, e) =>
             {
-                LoadingIndicator.Visibility = Visibility.Hidden;
-                MessageBox.Show("Sai tài khoản hoặc mật khẩu!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            else
+                account = _userService.Login(username, password).Result;
+            };
+
+            background.RunWorkerCompleted += (sender, e) =>
             {
-                LoadingIndicator.Visibility = Visibility.Hidden;
-                this.Hide();
-                _accountManager.SaveAccount(account);
-                var window = _mainWindow.Create();
-                window.Tag = null;
-                window.ShowDialog();
-                this.ShowDialog();
-            }
+                if (account == null)
+                {
+                    LoadingIndicator.Visibility = Visibility.Hidden;
+                    MessageBox.Show("Sai tài khoản hoặc mật khẩu!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    LoadingIndicator.Visibility = Visibility.Hidden;
+                    this.Hide();
+                    _accountManager.SaveAccount(account);
+                    var window = _mainWindow.Create();
+                    window.Tag = null;
+                    window.ShowDialog();
+                    this.ShowDialog();
+                }
+            };
+
+            background.RunWorkerAsync();
+            
         }
+
+     
     }
 }

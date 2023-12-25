@@ -308,7 +308,8 @@
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Stretch"
                                         ItemsSource="{Binding DataComment, IsAsync=True}"
-                                        SnapsToDevicePixels="True">
+                                        SnapsToDevicePixels="True"
+                                        VirtualizingStackPanel.IsVirtualizing="True">
 
 
 

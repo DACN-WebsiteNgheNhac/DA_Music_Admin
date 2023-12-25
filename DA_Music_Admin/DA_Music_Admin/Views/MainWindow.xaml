@@ -30,6 +30,9 @@
     <Window.Resources>
 
         <ResourceDictionary>
+            <Style TargetType="FrameworkElement">
+                <Setter Property="RenderOptions.BitmapScalingMode" Value="HighQuality" />
+            </Style>
 
             <Storyboard x:Key="HighLight">
                 <ColorAnimation

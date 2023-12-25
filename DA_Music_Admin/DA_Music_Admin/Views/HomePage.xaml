@@ -444,6 +444,9 @@
                             <lc:PieChart.DataTooltip>
                                 <lc:DefaultTooltip Background="{DynamicResource SubBackgroundColor}" />
                             </lc:PieChart.DataTooltip>
+                            <lc:PieChart.CacheMode>
+                                <BitmapCache />
+                            </lc:PieChart.CacheMode>
                         </lc:PieChart>
                     </Grid>
                 </Border>
@@ -474,6 +477,9 @@
                             <lc:PieChart.DataTooltip>
                                 <lc:DefaultTooltip Background="{DynamicResource SubBackgroundColor}" />
                             </lc:PieChart.DataTooltip>
+                            <lc:PieChart.CacheMode>
+                                <BitmapCache />
+                            </lc:PieChart.CacheMode>
                         </lc:PieChart>
                     </Grid>
                 </Border>
@@ -512,7 +518,8 @@
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
                             ItemsSource="{Binding DataNewUser, IsAsync=True}"
-                            SnapsToDevicePixels="True">
+                            SnapsToDevicePixels="True"
+                            VirtualizingStackPanel.IsVirtualizing="True">
 
                             <ListView.Resources>
                                 <Style BasedOn="{StaticResource CustomScrollBar}" TargetType="ScrollBar">
@@ -663,7 +670,8 @@
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
                             ItemsSource="{Binding DataNewSong, IsAsync=True}"
-                            SnapsToDevicePixels="True">
+                            SnapsToDevicePixels="True"
+                            VirtualizingStackPanel.IsVirtualizing="True">
 
                             <ListView.Resources>
                                 <Style BasedOn="{StaticResource CustomScrollBar}" TargetType="ScrollBar">

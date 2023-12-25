@@ -241,6 +241,8 @@
                     AutoGenerateColumns="False"
                     Background="{DynamicResource SubBackgroundColor}"
                     ColumnWidth="*"
+                    EnableColumnVirtualization="True"
+                    EnableRowVirtualization="True"
                     FocusVisualStyle="{x:Null}"
                     Focusable="False"
                     FontSize="{StaticResource TextSize}"
